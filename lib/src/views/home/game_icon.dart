@@ -1,0 +1,26 @@
+class Constant{
+  static Map<String,String> icons = {//"fgffc":"fgffc","bj5fc":"bj5fc",
+    "tx5fc":"txwfc","more":"more",
+    "txffc":"txffc", "xdl3d5fc":"xdl3d5fc",
+    "3d5f28":"sdwf28", "hg28":"hg28",
+    "fc3d":"fc3d", "bj28":"bj28",
+    "jnd28":"jnd28", "pl3":"pl3",
+    "zy3d":"zy3d", "shssl":"shssl",
+    "xglhc":"xglhc", "zyxglhc":"zyxglhc",
+    "llssc":"llssc", "fhjlssc":"fhjlssc",
+    "ahk3":"ahk3",
+    "hbk3":"hbk3", "qqtxffc":"qqtxffc",
+    "xyk3":"xyk3", "ffk3":"ffk3",
+    "3fk3":"sfk3", "5fk3":"wfk3",
+    "sck3":"sck3", "amk3":"amk3",
+    "gd11x5":"gdsyxw", "jx11x5":"jxsyxw",
+    "sh11x5":"shsyxw", "sd11x5":"sdsyxw",
+    "bjpk10":"bjpk10",
+    "mlaft":"mlaft",//幸运飞艇
+    "sc11x5":"xysyxw", "jspk10":"xypk10",
+    "5fpk10":"wfpk10", "js115":"jssyxw",
+    "cqssc":"cqssc", "xjssc":"xjssc",
+    "bjkl8":"bjkl8", "twbg":"twbg",
+    "gdklsf":"gdklsf", "zyklsf":"zyklsf",
+  };
+}
