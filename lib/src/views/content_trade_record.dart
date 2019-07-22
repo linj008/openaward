@@ -180,7 +180,7 @@ class _TradeRecordPageState
 
               subBetDetailContainer(
 
-                  buyTradesList[i].prize.toString() + "   " + buyTradesList[i].name,
+                  index == 0 ? buyTradesList[i].prize.toString() + "   " + buyTradesList[i].name : sellTradesList[i].prize.toString() + "   " + sellTradesList[i].name,
                   index == 0 ? APPStyle.heightLightGreen : APPStyle.heightLightRed,
                   index == 0 ? "买入" : "卖出",
                   Colors.grey,
@@ -189,7 +189,7 @@ class _TradeRecordPageState
               ),
               Divider(),
               subBetDetailContainer(
-                  buyTradesList[i].info ,
+                  index == 0 ? buyTradesList[i].info : sellTradesList[i].info ,
                 Colors.grey,
                 " ",
                 Colors.grey,
@@ -197,9 +197,9 @@ class _TradeRecordPageState
                 5.00
               ),
               subBetDetailContainer(
-                "数量: " + buyTradesList[i].count.toString(),
+                "数量: " + (index == 0 ? buyTradesList[i].count.toString() : sellTradesList[i].count.toString()),
                 Colors.grey,
-                "限额: " + buyTradesList[i].minLimit.toString() + "-" + buyTradesList[i].maxLimit.toString(),
+                "限额: " + (index == 0 ? buyTradesList[i].minLimit.toString() + "-" + buyTradesList[i].maxLimit.toString() : sellTradesList[i].minLimit.toString() + "-" + sellTradesList[i].maxLimit.toString()),
                 Colors.grey,
                   15.00,
                   5.00
@@ -429,6 +429,7 @@ class _TradeRecordPageState
         child: ListView.builder(
             itemCount: sellTradesList.length,
             itemBuilder: (BuildContext context, int i) {
+
               return betDetailContainer(i);
             }),
         onLoadMore: _loadMore,
