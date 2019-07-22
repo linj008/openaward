@@ -9,7 +9,8 @@ class APPStyle {
   static Color themeColor = Color(0xFFffffff);
   static Color background = Colors.black12;
   static Color selectBackground = Colors.white;
-  static Color heightLightColor = Color(0xFF68BA7A);
+  static Color heightLightGreen = Color(0xFF68BA7A);
+  static Color heightLightRed = Color(0xFFF17070);
   static Color bottomNavigationBar = Color(0xFF22292c);
   static Color unselectedBottomColor = Color(0xFFF1F1F1);
   static double maxTextSize = 16.0;

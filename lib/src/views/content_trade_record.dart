@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loadmore/loadmore.dart';
+import 'package:opening_award/src/model/TradeBuyRecordInfo.dart';
+import 'package:opening_award/src/model/TradeSellRecordInfo.dart';
 
 import '../common/app_style.dart';
 import '../common/base_data.dart';
@@ -17,6 +19,7 @@ class TradeRecordPage extends BaseStatefulWidget {
 class _TradeRecordPageState
     extends BaseWidgetState<ViewBasicResponse, TradeRecordPage>
     with SingleTickerProviderStateMixin {
+  int index = 0;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   TabController _tabController;
   List<Widget> _textList;
@@ -25,11 +28,13 @@ class _TradeRecordPageState
       DateTime.now().add(Duration(days: 1)).toString().split(" ").first;
   int curPage = 1; //当前页
   int count = 30;
-  List betsList; //投注记录
+  List<TradeBuyRecordItem> buyTradesList; //交易记录
+  List<TradeSellRecordItem> sellTradesList; //交易记录
   int currentStatus; //当前查询状态
   String pickerValue = "所有彩种";
 
-  List _list;
+  List<TradeBuyRecordItem> _listBuy;
+  List<TradeSellRecordItem> _listSell;
 
   @override
   void dispose() {
@@ -39,16 +44,18 @@ class _TradeRecordPageState
 
   void initState() {
     super.initState();
-    betsList = [];
+    buyTradesList = [];
+    sellTradesList = [];
     _textList = [];
-    _list = [];
+    _listBuy = [];
+    _listSell = [];
 
     List textList = ['购买', '出售', '委托单', '订单'];
     textList.forEach((item) {
       _textList.add(Tab(
         child: Text(
           item,
-          style: TextStyle(color: Colors.black, fontSize: 12),
+          style: TextStyle(color: Colors.black, fontSize: 15),
           textAlign: TextAlign.center,
         ),
       ));
@@ -59,13 +66,16 @@ class _TradeRecordPageState
     _tabController = new TabController(vsync: this, length: _textList.length);
     _tabController.addListener(() {
       if (_tabController.index == 0) {
+        index = _tabController.index;
         getRecord();
       } else {
+        index = _tabController.index;
         currentStatus = _tabController.index - 1;
         getRecord();
       }
     });
   }
+
 
   void getRecord() {
     /*ViewBasicRequest request = new ViewBasicRequest();
@@ -76,25 +86,71 @@ class _TradeRecordPageState
         curPage, null, count, startDate, endDate, null, lotteryId, currentStatus);
     request.data = recordReq;
     widget.eventBus.fire(request);*/
+    if(index == 0) {
+      TradeBuyRecordInfo tradeBuyRecordInfo = new TradeBuyRecordInfo();
+      for (int i = 0; i < 10; i ++) {
+        TradeBuyRecordItem item = new TradeBuyRecordItem();
+        item.name = "CNY";
+        item.prize = 6.98;
+        item.info = "诚信商家 50单 完成率92.00%";
+        item.count = 150;
+        item.minLimit = 50.00;
+        item.maxLimit = 150.00;
+        item.type = index == 0 ? 0 : 1;
+        tradeBuyRecordInfo.buyRecordList.add(item);
+      }
+      ViewBasicResponse response = ViewBasicResponse();
+      response.data = tradeBuyRecordInfo;
+      upDate(response);
+    }else{
+      TradeSellRecordInfo tradeSellRecordInfo = new TradeSellRecordInfo();
+      for (int i = 0; i < 10; i ++) {
+        TradeSellRecordItem item = new TradeSellRecordItem();
+        item.name = "CNY";
+        item.prize = 6.88;
+        item.info = "诚信商家 50单 完成率82.00%";
+        item.count = 150;
+        item.minLimit = 60.00;
+        item.maxLimit = 160.00;
+        item.type = index == 0 ? 0 : 1;
+        tradeSellRecordInfo.sellRecordList.add(item);
+      }
+      ViewBasicResponse response = ViewBasicResponse();
+      response.data = tradeSellRecordInfo;
+      upDate(response);
+    }
   }
 
   Container subBetDetailContainer(
-      String mainText, Color mainTextColor, String subText, subTextColor) {
+      String mainText, Color mainTextColor, String subText, subTextColor, double bottom, top) {
+    Color color = subText == "买入" ? APPStyle.heightLightGreen : APPStyle.heightLightRed;
     return new Container(
-      padding: EdgeInsets.only(bottom: 2),
+      padding: EdgeInsets.only(bottom: bottom, top: top),
       child: new Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           new Expanded(
             child: new Text(
               mainText,
-              style: new TextStyle(fontSize: 11, color: mainTextColor),
+              style: new TextStyle(fontSize: 13, color: mainTextColor),
             ),
           ),
+          subText == "买入" || subText == "卖出" ?
+          new Container(
+              height: 30.0,
+          width: 60.0,
+          child:
+            new FlatButton(
+              onPressed: (){},
+              color: color,
+              child: Text(subText, style: new TextStyle(fontSize: 13, color: APPStyle.themeColor),),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+            )
+          ):
           new Expanded(
             child: new Text(
               subText,
-              style: new TextStyle(fontSize: 11, color: subTextColor),
+              style: new TextStyle(fontSize: 13, color: subTextColor),
               textAlign: TextAlign.right,
             ),
           ),
@@ -116,38 +172,44 @@ class _TradeRecordPageState
           widget.eventBus.fire(request);*/
         },
         child: Container(
+          margin: EdgeInsets.only(top: 10),
           padding: EdgeInsets.only(left: 15, right: 15, top: 15),
+          color: APPStyle.themeColor,
           child: new Column(
             children: <Widget>[
-              new Container(
-                  margin: EdgeInsets.only(bottom: 10),
-                  child: new Row(
-                    children: <Widget>[
-                      new Text(
-                        '6.95  CNY',
-                        style: new TextStyle(fontSize: 11, color: APPStyle.heightLightColor),
-                      )
-                    ],
-                  )),
+
+              subBetDetailContainer(
+
+                  buyTradesList[i].prize.toString() + "   " + buyTradesList[i].name,
+                  index == 0 ? APPStyle.heightLightGreen : APPStyle.heightLightRed,
+                  index == 0 ? "买入" : "卖出",
+                  Colors.grey,
+                  2.00,
+                  2.00,
+              ),
               Divider(),
               subBetDetailContainer(
-                "操作: " ,
+                  buyTradesList[i].info ,
                 Colors.grey,
-                "期号: ",
+                " ",
                 Colors.grey,
+                6.00,
+                5.00
               ),
               subBetDetailContainer(
-                "投注时间: ",
+                "数量: " + buyTradesList[i].count.toString(),
                 Colors.grey,
-                "游戏玩法: ",
+                "限额: " + buyTradesList[i].minLimit.toString() + "-" + buyTradesList[i].maxLimit.toString(),
                 Colors.grey,
+                  15.00,
+                  5.00
               )
             ],
           ),
         ));
   }
 
-  void chooseDate(DateTime time, int i) {
+  /*void chooseDate(DateTime time, int i) {
     if (i == 0) {
       startDate = time.toString().split(" ").first;
     } else {
@@ -198,7 +260,7 @@ class _TradeRecordPageState
             ],
           ),
         ));
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -280,7 +342,7 @@ class _TradeRecordPageState
                     color: Colors.white,
                     child: new TabBar(
                       tabs: _textList,
-                      indicatorColor: APPStyle.heightLightColor,
+                      indicatorColor: APPStyle.heightLightGreen,
                       controller: _tabController,
                     ),
                   ),
@@ -302,6 +364,7 @@ class _TradeRecordPageState
 
   @override
   void upDate(ViewBasicResponse p) {
+
     /*if (p.data == null) {
       return;
     }
@@ -326,18 +389,51 @@ class _TradeRecordPageState
         }
       });
     }*/
+
+    if (p.data is TradeBuyRecordInfo) {
+      _listBuy.clear();
+      List<TradeBuyRecordItem> info = p.data.buyRecordList;
+      _listBuy = info;
+      setState(() {
+        for (int i = 0; i < info.length; i++) {
+          buyTradesList.add(info[i]);
+        }
+      });
+    }
+    if (p.data is TradeSellRecordInfo) {
+      _listSell.clear();
+      List<TradeSellRecordItem> info = p.data.sellRecordList;
+      _listSell = info;
+      setState(() {
+        for (int i = 0; i < info.length; i++) {
+          sellTradesList.add(info[i]);
+        }
+      });
+    }
   }
 
   Widget buildListView() {
-    return LoadMore(
-      isFinish: _list.length == 0 ? true : false,
-      child: ListView.builder(
-          itemCount: betsList.length,
-          itemBuilder: (BuildContext context, int i) {
-            return betDetailContainer(i);
-          }),
-      onLoadMore: _loadMore,
-    );
+    if(index == 0) {
+      return LoadMore(
+        isFinish: _listBuy.length == 0 ? true : false,
+        child: ListView.builder(
+            itemCount: buyTradesList.length,
+            itemBuilder: (BuildContext context, int i) {
+              return betDetailContainer(i);
+            }),
+        onLoadMore: _loadMore,
+      );
+    }else if(index == 1){
+      return LoadMore(
+        isFinish: _listSell.length == 0 ? true : false,
+        child: ListView.builder(
+            itemCount: sellTradesList.length,
+            itemBuilder: (BuildContext context, int i) {
+              return betDetailContainer(i);
+            }),
+        onLoadMore: _loadMore,
+      );
+    }
   }
 
   Future<bool> _loadMore() async {
