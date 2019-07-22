@@ -2,22 +2,22 @@ class JsonString {
   static String gridMenu = """[
   {
     "id": "",
-    "icon": "assets/images/icon_recharge_record.png",
+    "icon": "assets/images/ic_order.png",
     "name": "支付订单"
   },
   {
     "id": "",
-    "icon": "assets/images/icon_recharge_record.png",
+    "icon": "assets/images/ic_money.png",
     "name": "收款信息"
   },
   {
     "id": "",
-    "icon": "assets/images/icon_recharge_record.png",
+    "icon": "assets/images/ic_identify.png",
     "name": "身份认证"
   },
   {
     "id": "",
-    "icon": "assets/images/icon_recharge_record.png",
+    "icon": "assets/images/ic_safety.png",
     "name": "安全设置"
   }
 ]""";
