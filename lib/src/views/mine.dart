@@ -35,16 +35,17 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
         appBar: AppBar(title: Text("我的账户"), actions: <Widget>[
           GestureDetector(
               child: Container(
-                  margin: EdgeInsets.only(right: 10),
-                  child: Row(children: <Widget>[
-                    Image.asset("assets/images/icon_customer_service.png",
-                        height: 25, width: 25)
-                  ])))
+                  margin: EdgeInsets.only(right: 16),
+                  child: Image.asset("assets/images/ic_set.png",
+                      height: 24, width: 24)))
         ]),
         body: Column(children: <Widget>[
           Container(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [Color(0xff1B4EE1), Color(0xff2eb7ff)]),
+                  borderRadius: BorderRadius.all(Radius.circular(8))),
               height: 180,
-              color: Colors.blue,
               padding: EdgeInsets.all(16),
               margin: EdgeInsets.only(left: 16, top: 16, right: 16),
               child: Column(
@@ -52,20 +53,34 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
                   children: <Widget>[
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Image.asset("assets/images/icon_logo.png",
-                              height: 60, width: 60),
-                          Container(
-                              margin: EdgeInsets.only(left: 16),
-                              child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Text('总资产（￥）',
-                                        style: APPStyle.whiteMidTextStyle),
-                                    Text('${_isShow ? '0.00' : '******'}',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 24))
-                                  ])),
+                          Row(children: <Widget>[
+                            Container(
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(60)),
+                                    border: Border.all(
+                                        color: Colors.white, width: 2)),
+                                child: ClipOval(
+                                    child: Image.asset(
+                                        "assets/images/logo.jpeg",
+                                        height: 60,
+                                        width: 60))),
+                            Container(
+                                margin: EdgeInsets.only(left: 16),
+                                child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text('总资产（￥）',
+                                          style: APPStyle.whiteMidTextStyle),
+                                      Text('${_isShow ? '0.00' : '******'}',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 24))
+                                    ]))
+                          ]),
                           GestureDetector(
                               onTap: () {
                                 setState(() {
@@ -74,19 +89,20 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
                               },
                               child: Image.asset(
                                   _isShow
-                                      ? 'assets/images/icon_display.png'
-                                      : 'assets/images/icon_hide.png',
+                                      ? 'assets/images/icon_hide.png'
+                                      : 'assets/images/icon_display.png',
                                   height: 20,
                                   width: 20))
                         ]),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        Text('我的钱包', style: APPStyle.whiteMidTextStyle),
-                        Text('法币账户', style: APPStyle.whiteMidTextStyle),
-                        Text('币币账户', style: APPStyle.whiteMidTextStyle),
-                      ],
-                    )
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: <Widget>[
+                          Text('我的钱包', style: APPStyle.whiteMidTextStyle),
+                          Container(color: Colors.white, width: 1, height: 16),
+                          Text('法币账户', style: APPStyle.whiteMidTextStyle),
+                          Container(color: Colors.white, width: 1, height: 16),
+                          Text('币币账户', style: APPStyle.whiteMidTextStyle)
+                        ])
                   ])),
           GridView.builder(
               shrinkWrap: true,
@@ -98,7 +114,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
               itemBuilder: (BuildContext context, int index) {
                 return _buildGridItem(_gridMenus[index]);
               }),
-          Container(color: APPStyle.background, height: 20),
+          Container(color: Color(0xfff8f8f8), height: 16),
           ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
