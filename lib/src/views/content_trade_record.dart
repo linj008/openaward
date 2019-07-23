@@ -94,7 +94,7 @@ class _TradeRecordPageState
                       TabBarView(controller: _tabController, children: <Widget>[
                 _buildListView(_insideDatas),
                 _buildListView(_outsideDatas),
-                _buildListView(_agentDatas),
+                buildMyOrderList(),
                 _buildListView(_orderDatas)
               ]))
             ]));
@@ -138,6 +138,34 @@ class _TradeRecordPageState
               return TradeItem(item: trades[index], tag: TradeTag.record);
             }),
         onLoadMore: _loadMore);
+  }
+
+  Widget buildMyOrderList() {
+    return Container(
+        //alignment:Alignment.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset("assets/images/img_order.png", width: 278, height: 202),
+            Text("您当前还没有进行任何挂单",
+                style: new TextStyle(fontSize: 13, color: Colors.grey)),
+            Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: new FlatButton(
+                onPressed: () {},
+                color: Color(0xFF2859E7),
+                child: Text(
+                  "立即挂单",
+                  style:
+                      new TextStyle(fontSize: 13, color: APPStyle.themeColor),
+                ),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+              ),
+            )
+          ],
+        ),
+        color: Color(0xFFF8F8F8));
   }
 
   Future<bool> _loadMore() async {
