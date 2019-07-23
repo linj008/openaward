@@ -1,9 +1,11 @@
 import 'dart:convert';
+import 'model/menu.dart';
 import 'model/trade_record.dart';
 import 'test_json.dart';
 
 class TestData {
   static List<TradeRecord> _homeDatas;
+  static List<Menu> _homeBannerDatas;
   static List<TradeRecord> _recordInsideDatas;
   static List<TradeRecord> _recordOutsideDatas;
   static List<TradeRecord> _recordAgentDatas;
@@ -32,6 +34,16 @@ class TestData {
   /// 首页测试数据
   static List<TradeRecord> getHomeData() =>
       _homeDatas ??= _$datas(TestJson.homeJson);
+
+  /// HOME-BANNER
+  static List<Menu> getHomeBannerData() {
+    if (_homeBannerDatas != null) return _homeBannerDatas;
+    List<Menu> list = List();
+    List listJson = json.decode(TestJson.homeBanner);
+    list = listJson.map((i) => Menu.fromJson(i)).toList();
+    _homeBannerDatas = list;
+    return _homeBannerDatas;
+  }
 
   /// 记录-inside
   static List<TradeRecord> getRecordInsideData() =>

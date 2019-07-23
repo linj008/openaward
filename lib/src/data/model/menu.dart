@@ -1,14 +1,16 @@
 class Menu {
-  String id;
+  int id;
   String icon;
   String name;
+  String http;
 
-  Menu({this.id, this.icon, this.name});
+  Menu({this.id, this.icon, this.name, this.http});
 
   Menu.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     icon = json['icon'];
     name = json['name'];
+    http = json['http'];
   }
 
   Map<String, dynamic> toJson() {
@@ -16,6 +18,7 @@ class Menu {
     data['id'] = this.id;
     data['icon'] = this.icon;
     data['name'] = this.name;
+    data['http'] = this.http;
     return data;
   }
 }

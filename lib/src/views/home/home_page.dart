@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:opening_award/src/common/app_style.dart';
 import 'package:opening_award/src/common/base_data.dart';
 import 'package:opening_award/src/common/weight/base_stateful_widget.dart';
+import 'package:opening_award/src/data/model/menu.dart';
 import 'package:opening_award/src/data/model/trade_record.dart';
 import 'package:opening_award/src/data/test_data.dart';
 import 'package:opening_award/src/views/widget/trade_item.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
-import 'home_data.dart';
-import 'noticeVec_animation_wedgit.dart';
-
+// ignore: must_be_immutable
 class HomePage extends BaseStatefulWidget {
   @override
   BaseWidgetState<ViewBasicResponse, BaseStatefulWidget> getState() {
@@ -19,42 +17,14 @@ class HomePage extends BaseStatefulWidget {
 
 class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
     with SingleTickerProviderStateMixin {
-  HomeData _homeData;
-  List<Image> banners = new List();
-  List<String> notices = ["测试测试测试测试", "测试测试测试", "测试测试", "测试测试测试测试测试"];
-  TabController mController;
-  List<TabTitle> tabList = new List();
   List<TradeRecord> _datas;
+  List<Menu> _bannerDatas;
 
   @override
   void initState() {
     super.initState();
     this._datas = TestData.getHomeData();
-    getServerData('HomePage');
-    addBanner();
-  }
-
-  void addBanner() {
-    banners
-      ..add(Image.asset(
-        'assets/images/sbty.png',
-        fit: BoxFit.fill,
-      ))
-      ..add(Image.asset(
-        'assets/images/sjqp.png',
-        fit: BoxFit.fill,
-      ))
-      ..add(Image.asset(
-        'assets/images/sjsx.png',
-        fit: BoxFit.fill,
-      ));
-  }
-
-  void getServerData(String key) {
-    ViewBasicRequest request = new ViewBasicRequest();
-    request.key = key;
-    request.type = ViewRequestType.eViewRequestTypeServer;
-    request.context = this.context;
+    this._bannerDatas = TestData.getHomeBannerData();
   }
 
   @override
@@ -76,25 +46,35 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
                   child: Image.asset("assets/images/ic_get_money.png")))
         ]),
         body: ListView(children: <Widget>[
-          swiperView(),
-          Row(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(
-                  left: 10,
-                ),
-                child: SizedBox(
-                    width: 30,
-                    height: 24,
-                    child: Image.asset(
-                      'assets/images/notice.png',
-                    )),
-              ),
-              Expanded(
-                child: buildNoticeVec(),
-              )
-            ],
+          Container(
+            height: 180,
+            padding: EdgeInsets.only(left: 16, top: 16, right: 16),
+            child: Swiper(
+                pagination: SwiperPagination(
+                    alignment: Alignment.bottomRight,
+                    margin: EdgeInsets.fromLTRB(0, 0, 20, 10),
+                    builder: DotSwiperPaginationBuilder(
+                        color: Colors.black54, activeColor: Colors.black12)),
+                controller: SwiperController(),
+                scrollDirection: Axis.horizontal,
+                autoplay: true,
+                onTap: (index) => print('点击了第$index'),
+                itemCount: _bannerDatas.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return _builderSwiper(_bannerDatas[index]);
+                }),
           ),
+          Column(children: <Widget>[
+            Container(color: Color(0xfff8f8f8), height: 8),
+            Container(
+                padding: EdgeInsets.only(top: 8, bottom: 8),
+                child: Text('doing',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16))),
+            Container(color: Color(0xfff8f8f8), height: 8)
+          ]),
           ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
@@ -106,50 +86,15 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
         ]));
   }
 
-  Padding buildNoticeVec() {
-    return Padding(
-      padding: EdgeInsets.only(left: 8, top: 10, bottom: 10, right: 16),
-      child: NoticeVecAnimation(
-        messages: notices,
-      ),
-    );
-  }
-
-  Widget swiperView() {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.width / 375 * 150,
-      child: Swiper(
-        itemCount: banners == null ? 0 : banners.length,
-        itemBuilder: _swiperBuilder,
-        pagination: SwiperPagination(
-            alignment: Alignment.bottomRight,
-            margin: const EdgeInsets.fromLTRB(0, 0, 20, 10),
-            builder: DotSwiperPaginationBuilder(
-                color: Colors.black54, activeColor: Colors.black12)),
-        controller: SwiperController(),
-        scrollDirection: Axis.horizontal,
-        autoplay: true,
-        onTap: (index) => print('点击了第$index'),
-      ),
-    );
-  }
-
-  Widget _swiperBuilder(BuildContext context, int index) {
-//    Image image = Image.network(
-//      banners[index],
-//      fit: BoxFit.fill,
-//    );
-//    image = Image.asset(
-//      'assets/images/CQSSC.png',
-//      package: 'app_flutter_view_home',
-//      fit: BoxFit.fill,
-//    );
-    return banners[index];
+  Widget _builderSwiper(Menu menu) {
+    return ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: FadeInImage.assetNetwork(
+            placeholder: 'assets/images/logo.jpeg',
+            image: menu.icon,
+            fit: BoxFit.fill));
   }
 
   @override
-  void upDate(ViewBasicResponse p) {
-    setState(() {});
-  }
+  void upDate(ViewBasicResponse p) {}
 }
