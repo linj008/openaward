@@ -68,14 +68,17 @@ class _TradeRecordPageState
       if (_tabController.index == 0) {
         index = _tabController.index;
         getRecord();
-      } else {
+      } else if(_tabController.index == 1){
+        index = _tabController.index;
+        currentStatus = _tabController.index - 1;
+        getRecord();
+      } else if(_tabController.index == 2){
         index = _tabController.index;
         currentStatus = _tabController.index - 1;
         getRecord();
       }
     });
   }
-
 
   void getRecord() {
     /*ViewBasicRequest request = new ViewBasicRequest();
@@ -102,7 +105,7 @@ class _TradeRecordPageState
       ViewBasicResponse response = ViewBasicResponse();
       response.data = tradeBuyRecordInfo;
       upDate(response);
-    }else{
+    }else if(index == 1){
       TradeSellRecordInfo tradeSellRecordInfo = new TradeSellRecordInfo();
       for (int i = 0; i < 10; i ++) {
         TradeSellRecordItem item = new TradeSellRecordItem();
@@ -117,6 +120,9 @@ class _TradeRecordPageState
       }
       ViewBasicResponse response = ViewBasicResponse();
       response.data = tradeSellRecordInfo;
+      upDate(response);
+    }else if(index == 2){
+      ViewBasicResponse response = ViewBasicResponse();
       upDate(response);
     }
   }
@@ -354,41 +360,22 @@ class _TradeRecordPageState
                         children: <Widget>[
                           buildListView(),
                           buildListView(),
-                          buildListView(),
-                          buildListView(),
+                          buildMyOrderList(),
+                          Container(height: 50,width: 50,alignment:Alignment.center,child: Text("敬请期待"), color: Color(0xFFF8F8F8)),
                         ],
                       ))
                 ])));
     return scaffold;
   }
 
+
+
   @override
   void upDate(ViewBasicResponse p) {
 
-    /*if (p.data == null) {
-      return;
-    }
+    if (p.data == null) {
 
-    if (p.data is List<GameLottery>) {
-      List<GameLottery> info = p.data;
-      setState(() {
-        for (int i = 0; i < info.length; i++) {
-          lotteryList.add(info[i].showName);
-          lotteryIdList.add(info[i].id);
-        }
-      });
     }
-
-    if (p.data is ReportBetRecordInfo) {
-      _list.clear();
-      ReportBetRecordInfo info = p.data;
-      _list = info.betsList;
-      setState(() {
-        for (int i = 0; i < info.betsList.length; i++) {
-          betsList.add(info.betsList[i]);
-        }
-      });
-    }*/
 
     if (p.data is TradeBuyRecordInfo) {
       _listBuy.clear();
@@ -442,6 +429,26 @@ class _TradeRecordPageState
     curPage++;
     getRecord();
     return true;
+  }
+
+  Widget buildMyOrderList() {
+    return Container(
+        //alignment:Alignment.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset("assets/images/img_order.png", width: 278, height: 202),
+            Text("您当前还没有进行任何挂单", style: new TextStyle(fontSize: 13, color: Colors.grey)),
+            Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: new FlatButton(
+              onPressed: (){},
+              color: Color(0xFF2859E7),
+              child: Text("立即挂单", style: new TextStyle(fontSize: 13, color: APPStyle.themeColor),),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+            ),)
+        ],),
+        color: Color(0xFFF8F8F8));
   }
 
   /*showPicker(BuildContext context, List list) {
