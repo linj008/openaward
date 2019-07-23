@@ -32,11 +32,11 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(title: Text("我的账户"), actions: <Widget>[
+        appBar: AppBar(title: Text('我的账户'), actions: <Widget>[
           GestureDetector(
               child: Container(
                   margin: EdgeInsets.only(right: 16),
-                  child: Image.asset("assets/images/ic_set.png",
+                  child: Image.asset('assets/images/ic_set.png',
                       height: 24, width: 24)))
         ]),
         body: Column(children: <Widget>[
@@ -64,7 +64,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
                                         color: Colors.white, width: 2)),
                                 child: ClipOval(
                                     child: Image.asset(
-                                        "assets/images/logo.jpeg",
+                                        'assets/images/logo.jpeg',
                                         height: 60,
                                         width: 60))),
                             Container(

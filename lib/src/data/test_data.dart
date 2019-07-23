@@ -1,12 +1,13 @@
 import 'dart:convert';
-import 'model/menu.dart';
+import 'package:opening_award/src/data/model/banner.dart';
+
 import 'model/show_data.dart';
 import 'model/trade_record.dart';
 import 'test_json.dart';
 
 class TestData {
   static List<TradeRecord> _homeDatas;
-  static List<Menu> _homeBannerDatas;
+  static List<BannerData> _homeBannerDatas;
   static List<ShowData> _homeShowDatas;
   static List<TradeRecord> _recordInsideDatas;
   static List<TradeRecord> _recordOutsideDatas;
@@ -38,11 +39,11 @@ class TestData {
       _homeDatas ??= _$datas(TestJson.homeJson);
 
   /// HOME-BANNER
-  static List<Menu> getHomeBannerData() {
+  static List<BannerData> getHomeBannerData() {
     if (_homeBannerDatas != null) return _homeBannerDatas;
-    List<Menu> list = List();
+    List<BannerData> list = List();
     List listJson = json.decode(TestJson.homeBanner);
-    list = listJson.map((i) => Menu.fromJson(i)).toList();
+    list = listJson.map((i) => BannerData.fromJson(i)).toList();
     _homeBannerDatas = list;
     return _homeBannerDatas;
   }

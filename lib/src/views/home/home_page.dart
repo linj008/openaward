@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:opening_award/src/common/app_style.dart';
 import 'package:opening_award/src/common/base_data.dart';
 import 'package:opening_award/src/common/weight/base_stateful_widget.dart';
-import 'package:opening_award/src/data/model/menu.dart';
+import 'package:opening_award/src/data/model/banner.dart';
 import 'package:opening_award/src/data/model/show_data.dart';
 import 'package:opening_award/src/data/model/trade_record.dart';
 import 'package:opening_award/src/data/test_data.dart';
@@ -20,7 +20,7 @@ class HomePage extends BaseStatefulWidget {
 class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
     with SingleTickerProviderStateMixin {
   List<TradeRecord> _datas;
-  List<Menu> _bannerDatas;
+  List<BannerData> _bannerDatas;
   List<ShowData> _showDatas;
 
   @override
@@ -41,13 +41,13 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
               child: Container(
                   padding:
                       EdgeInsets.only(left: 8, top: 16, right: 8, bottom: 16),
-                  child: Image.asset("assets/images/ic_scan.png"))),
+                  child: Image.asset('assets/images/ic_scan.png'))),
           InkWell(
               onTap: () {},
               child: Container(
                   padding:
                       EdgeInsets.only(left: 8, top: 16, right: 8, bottom: 16),
-                  child: Image.asset("assets/images/ic_get_money.png")))
+                  child: Image.asset('assets/images/ic_get_money.png')))
         ]),
         body: ListView(children: <Widget>[
           Container(
@@ -100,12 +100,12 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
         ]));
   }
 
-  Widget _builderSwiper(Menu menu) {
+  Widget _builderSwiper(BannerData banner) {
     return ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: FadeInImage.assetNetwork(
             placeholder: 'assets/images/logo.jpeg',
-            image: menu.icon,
+            image: banner.picUrl,
             fit: BoxFit.fill));
   }
 
