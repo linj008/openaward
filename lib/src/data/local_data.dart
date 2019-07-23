@@ -1,9 +1,8 @@
 import 'dart:convert';
-
 import 'local_json.dart';
 import 'model/menu.dart';
 
-class JsonData {
+class LocalData {
   static List<Menu> _gridMenus;
   static List<Menu> _listMenus;
 
@@ -14,9 +13,7 @@ class JsonData {
     return list;
   }
 
-  static List<Menu> getGridMenu() =>
-      _gridMenus ??= _$menus(JsonString.gridMenu);
+  static List<Menu> getGridMenu() => _gridMenus ??= _$menus(LocalJson.gridMenu);
 
-  static List<Menu> getListMenu() =>
-      _listMenus ??= _$menus(JsonString.listMenu);
+  static List<Menu> getListMenu() => _listMenus ??= _$menus(LocalJson.listMenu);
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:opening_award/src/common/app_style.dart';
 import 'package:opening_award/src/common/base_data.dart';
 import 'package:opening_award/src/common/weight/base_stateful_widget.dart';
-import 'package:opening_award/src/data/json_data.dart';
+import 'package:opening_award/src/data/local_data.dart';
 import 'package:opening_award/src/data/model/menu.dart';
 
 // ignore: must_be_immutable
@@ -24,8 +24,8 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
   @override
   void initState() {
     super.initState();
-    this._gridMenus = JsonData.getGridMenu();
-    this._listMenus = JsonData.getListMenu();
+    this._gridMenus = LocalData.getGridMenu();
+    this._listMenus = LocalData.getListMenu();
   }
 
   @override
@@ -114,7 +114,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
               itemBuilder: (BuildContext context, int index) {
                 return _buildGridItem(_gridMenus[index]);
               }),
-          Container(color: Color(0xfff8f8f8), height: 16),
+          Container(color: Color(0xfff8f8f8), height: 8),
           ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),

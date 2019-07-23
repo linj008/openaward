@@ -32,7 +32,7 @@ class _HomeState extends State<MyHomePage> with SingleTickerProviderStateMixin {
       body: Column(
         children: <Widget>[
           Container(
-            color: new Color(0xfff4f5f6),
+            color: Colors.white,
             height: 38.0,
             child: TabBar(
               controller: mController,

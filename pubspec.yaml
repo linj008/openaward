@@ -93,6 +93,11 @@ flutter:
     - assets/images/ic_identify.png
     - assets/images/ic_safety.png
     - assets/images/img_order.png
+    - assets/images/pay_alipay.png
+    - assets/images/pay_wechat.png
+    - assets/images/pay_yinlian.png
+    - assets/images/ic_scan.png
+    - assets/images/ic_get_money.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
