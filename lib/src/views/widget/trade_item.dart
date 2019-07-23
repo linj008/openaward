@@ -28,11 +28,11 @@ class TradeItemState extends State<TradeItem> {
               child: Column(children: <Widget>[
                 Row(children: <Widget>[
                   Offstage(
-                      offstage: _offstage(_tag),
+                      offstage: _$offstage(_tag),
                       child: Image.asset('assets/images/logo.jpeg',
                           height: 14, width: 14)),
                   Offstage(
-                      offstage: _offstage(_tag),
+                      offstage: _$offstage(_tag),
                       child: Text(' ${_item.title} ',
                           style: TextStyle(
                               color: Colors.black,
@@ -41,7 +41,7 @@ class TradeItemState extends State<TradeItem> {
                   Expanded(
                       child: Text('${_item.price} CNY',
                           style: TextStyle(
-                              color: _color(_item.type),
+                              color: _$color(_item.type),
                               fontWeight: FontWeight.bold,
                               fontSize: 16))),
                   Container(
@@ -49,9 +49,8 @@ class TradeItemState extends State<TradeItem> {
                       width: 60.0,
                       child: FlatButton(
                           onPressed: () {},
-                          color: _color(_item.type),
-                          child: Text(
-                              TradeRecord.isInside(_item.type) ? '买入' : '卖出',
+                          color: _$color(_item.type),
+                          child: Text(_$text(_item.type),
                               style:
                                   TextStyle(fontSize: 14, color: Colors.white)),
                           shape: RoundedRectangleBorder(
@@ -107,13 +106,37 @@ class TradeItemState extends State<TradeItem> {
         ]));
   }
 
-  Color _color(int type) {
-    return TradeRecord.isInside(type)
-        ? APPStyle.heightLightGreen
-        : APPStyle.heightLightRed;
+  Color _$color(int type) {
+    switch (type) {
+      case TradeType.inside:
+        return APPStyle.heightLightGreen;
+      case TradeType.outside:
+        return APPStyle.heightLightRed;
+      case TradeType.agent:
+        return Colors.blueAccent;
+      case TradeType.order:
+        return Colors.amber;
+      default:
+        return APPStyle.heightLightGreen;
+    }
   }
 
-  bool _offstage(String tag) {
+  String _$text(int type) {
+    switch (type) {
+      case TradeType.inside:
+        return '买入';
+      case TradeType.outside:
+        return '卖出';
+      case TradeType.agent:
+        return '委托';
+      case TradeType.order:
+        return '订单';
+      default:
+        return '买入';
+    }
+  }
+
+  bool _$offstage(String tag) {
     switch (tag) {
       case TradeTag.home:
         return false;

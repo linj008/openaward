@@ -1,8 +1,4 @@
 class TradeRecord {
-  /// 0买入1卖出
-  static final int inside = 0;
-  static final int outside = 1;
-
   int id;
   String title;
   double price;
@@ -57,9 +53,19 @@ class TradeRecord {
     data['type'] = this.type;
     return data;
   }
+}
 
-  /// 是否买入;false:否;true:是
-  static bool isInside(int type) {
-    return type == inside;
-  }
+/// 0买入1卖出2委托3订单
+class TradeType {
+  /// 买入
+  static const int inside = 0;
+
+  /// 卖出
+  static const int outside = 1;
+
+  /// 委托
+  static const int agent = 2;
+
+  /// 订单
+  static const int order = 3;
 }

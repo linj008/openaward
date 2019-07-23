@@ -2,9 +2,26 @@ class TestJson {
   static String homeJson = """[
   {
     "id": 0,
-    "title": "USDT",
+    "title": "MRYH",
     "price": 0.01,
-    "name": "小鱼儿",
+    "name": "慕容云海",
+    "num": 100,
+    "percent": 84.12,
+    "icons": [
+      "alipay",
+      "wechat",
+      "yinlian"
+    ],
+    "count": 100,
+    "minLimit": 100.03,
+    "maxLimit": 200.03,
+    "type": 0
+  },
+  {
+    "id": 1,
+    "title": "HZL",
+    "price": 0.01,
+    "name": "花泽类",
     "num": 100,
     "percent": 84.12,
     "icons": [
@@ -18,27 +35,10 @@ class TestJson {
     "type": 1
   },
   {
-    "id": 1,
-    "title": "EOS",
-    "price": 0.01,
-    "name": "花无缺",
-    "num": 100,
-    "percent": 84.12,
-    "icons": [
-      "alipay",
-      "wechat",
-      "yinlian"
-    ],
-    "count": 100,
-    "minLimit": 100.03,
-    "maxLimit": 200.03,
-    "type": 0
-  },
-  {
     "id": 2,
-    "title": "BT",
+    "title": "XM",
     "price": 0.01,
-    "name": "江别鹤",
+    "name": "西门",
     "num": 100,
     "percent": 84.12,
     "icons": [
@@ -47,56 +47,98 @@ class TestJson {
     "count": 100,
     "minLimit": 100.03,
     "maxLimit": 200.03,
-    "type": 0
+    "type": 2
   },
+  {
+    "id": 3,
+    "title": "MZ",
+    "price": 0.01,
+    "name": "美作",
+    "num": 100,
+    "percent": 84.12,
+    "icons": [
+      "alipay"
+    ],
+    "count": 100,
+    "minLimit": 100.03,
+    "maxLimit": 200.03,
+    "type": 3
+  }
+]""";
+  static String recordInside = """[
   {
     "id": 0,
-    "title": "USDT",
+    "title": "MRYH",
     "price": 0.01,
-    "name": "小鱼儿",
+    "name": "莫容云海",
     "num": 100,
-    "percent": 84.12,
+    "percent": 60.01,
     "icons": [
       "alipay",
       "wechat",
       "yinlian"
     ],
     "count": 100,
-    "minLimit": 100.03,
-    "maxLimit": 200.03,
+    "minLimit": 100.01,
+    "maxLimit": 200.02,
+    "type": 0
+  }
+]""";
+  static String recordOutside = """[
+  {
+    "id": 0,
+    "title": "HZL",
+    "price": 0.01,
+    "name": "花泽类",
+    "num": 100,
+    "percent": 60.01,
+    "icons": [
+      "alipay",
+      "wechat",
+      "yinlian"
+    ],
+    "count": 100,
+    "minLimit": 100.01,
+    "maxLimit": 200.02,
     "type": 1
-  },
+  }
+]""";
+  static String recordAgent = """[
   {
-    "id": 1,
-    "title": "EOS",
+    "id": 0,
+    "title": "XM",
     "price": 0.01,
-    "name": "花无缺",
+    "name": "西门",
     "num": 100,
-    "percent": 84.12,
+    "percent": 60.01,
     "icons": [
       "alipay",
       "wechat",
       "yinlian"
     ],
     "count": 100,
-    "minLimit": 100.03,
-    "maxLimit": 200.03,
-    "type": 0
-  },
+    "minLimit": 100.01,
+    "maxLimit": 200.02,
+    "type": 2
+  }
+]""";
+  static String recordOrder = """[
   {
-    "id": 2,
-    "title": "BT",
+    "id": 0,
+    "title": "MZ",
     "price": 0.01,
-    "name": "江别鹤",
+    "name": "美作",
     "num": 100,
-    "percent": 84.12,
+    "percent": 60.01,
     "icons": [
-      "alipay"
+      "alipay",
+      "wechat",
+      "yinlian"
     ],
     "count": 100,
-    "minLimit": 100.03,
-    "maxLimit": 200.03,
-    "type": 0
+    "minLimit": 100.01,
+    "maxLimit": 200.02,
+    "type": 3
   }
 ]""";
 }
