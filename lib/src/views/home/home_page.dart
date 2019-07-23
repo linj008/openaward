@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:opening_award/src/common/app_style.dart';
 import 'package:opening_award/src/common/base_data.dart';
 import 'package:opening_award/src/common/weight/base_stateful_widget.dart';
 import 'package:opening_award/src/data/model/menu.dart';
+import 'package:opening_award/src/data/model/show_data.dart';
 import 'package:opening_award/src/data/model/trade_record.dart';
 import 'package:opening_award/src/data/test_data.dart';
 import 'package:opening_award/src/views/widget/trade_item.dart';
@@ -19,12 +21,14 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
     with SingleTickerProviderStateMixin {
   List<TradeRecord> _datas;
   List<Menu> _bannerDatas;
+  List<ShowData> _showDatas;
 
   @override
   void initState() {
     super.initState();
     this._datas = TestData.getHomeData();
     this._bannerDatas = TestData.getHomeBannerData();
+    this._showDatas = TestData.getHomeShowData();
   }
 
   @override
@@ -64,6 +68,16 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
                   return _builderSwiper(_bannerDatas[index]);
                 }),
           ),
+          GridView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+              ),
+              itemCount: _showDatas.length,
+              itemBuilder: (BuildContext context, int index) {
+                return _buildGridItem(_showDatas[index]);
+              }),
           Column(children: <Widget>[
             Container(color: Color(0xfff8f8f8), height: 8),
             Container(
@@ -94,6 +108,30 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
             image: menu.icon,
             fit: BoxFit.fill));
   }
+
+  Widget _buildGridItem(ShowData showData) {
+    return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text(showData.name,
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold)),
+          Text(showData.point.toString(),
+              style: TextStyle(
+                  color: _$color(showData.isPlus),
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold)),
+          Text('${showData.isPlus ? '+' : '-'}${showData.percent}%',
+              style: TextStyle(color: _$color(showData.isPlus), fontSize: 14)),
+          Text('${showData.money} CNY',
+              style: TextStyle(color: Colors.grey, fontSize: 14))
+        ]);
+  }
+
+  Color _$color(bool isPlus) =>
+      isPlus ? APPStyle.heightLightGreen : APPStyle.heightLightRed;
 
   @override
   void upDate(ViewBasicResponse p) {}

@@ -85,6 +85,32 @@ class TestJson {
     "http": "https://www.baidu.com/"
   }
 ]""";
+  static String homeShow = """[
+  {
+    "id": 0,
+    "name": "BTC/USDT",
+    "point": 1065.27,
+    "percent": 0.48,
+    "money": 7000.01,
+    "isPlus": true
+  },
+  {
+    "id": 1,
+    "name": "ETH/USDT",
+    "point": 1065.27,
+    "percent": 0.04,
+    "money": 7000.01,
+    "isPlus": false
+  },
+  {
+    "id": 2,
+    "name": "EOS/USDT",
+    "point": 1065.27,
+    "percent": 2.00,
+    "money": 7000.01,
+    "isPlus": true
+  }
+]""";
   static String recordInside = """[
   {
     "id": 0,
