@@ -7,7 +7,7 @@ class TradeItem extends StatefulWidget {
   TradeRecord item;
   String tag;
 
-  TradeItem({Key key, this.item, this.tag = 'home'}) : super(key: key);
+  TradeItem({Key key, this.item, this.tag}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => TradeItemState();
@@ -17,6 +17,7 @@ class TradeItemState extends State<TradeItem> {
   @override
   Widget build(BuildContext context) {
     TradeRecord _item = widget.item;
+    if (_item == null) return null;
     final _tag = widget.tag;
     return GestureDetector(
         onTap: () {},
@@ -27,11 +28,11 @@ class TradeItemState extends State<TradeItem> {
               child: Column(children: <Widget>[
                 Row(children: <Widget>[
                   Offstage(
-                      offstage: _offstage(tag: _tag),
+                      offstage: _offstage(_tag),
                       child: Image.asset('assets/images/logo.jpeg',
                           height: 14, width: 14)),
                   Offstage(
-                      offstage: _offstage(tag: _tag),
+                      offstage: _offstage(_tag),
                       child: Text(' ${_item.title} ',
                           style: TextStyle(
                               color: Colors.black,
@@ -112,8 +113,22 @@ class TradeItemState extends State<TradeItem> {
         : APPStyle.heightLightRed;
   }
 
-  bool _offstage({String tag}) {
-    if (tag == null) return true;
-    return !(tag == 'home');
+  bool _offstage(String tag) {
+    switch (tag) {
+      case TradeTag.home:
+        return false;
+      case TradeTag.record:
+        return true;
+      default:
+        return false;
+    }
   }
+}
+
+class TradeTag {
+  /// HOME
+  static const String home = 'home';
+
+  /// RECORD
+  static const String record = 'record';
 }
