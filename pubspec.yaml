@@ -92,6 +92,7 @@ flutter:
     - assets/images/ic_money.png
     - assets/images/ic_identify.png
     - assets/images/ic_safety.png
+    - assets/images/img_order.png
     - assets/images/pay_alipay.png
     - assets/images/pay_wechat.png
     - assets/images/pay_yinlian.png
