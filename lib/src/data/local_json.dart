@@ -1,4 +1,4 @@
-class JsonString {
+class LocalJson {
   static String gridMenu = """[
   {
     "id": "",
