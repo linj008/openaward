@@ -128,7 +128,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
   }
 
   Widget _buildGridItem(Menu menu) {
-    return GestureDetector(
+    return InkWell(
         onTap: () {},
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
