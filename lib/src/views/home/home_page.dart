@@ -9,7 +9,7 @@ import 'package:opening_award/src/data/test_data.dart';
 import 'package:opening_award/src/views/widget/trade_item.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
-import 'noticeVec_animation_wedgit.dart';
+import 'package:opening_award/src/views/widget/noticeVec_animation_wedgit.dart';
 
 // ignore: must_be_immutable
 class HomePage extends BaseStatefulWidget {
@@ -190,6 +190,7 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 14))
                             ])),
+                    Container(height: 8),
                     Container(
                         decoration: BoxDecoration(
                             color: Color(0xfff8f8f8),
