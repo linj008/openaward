@@ -1,5 +1,5 @@
 class Menu {
-  String id;
+  int id;
   String icon;
   String name;
 

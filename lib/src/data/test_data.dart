@@ -1,9 +1,15 @@
 import 'dart:convert';
+import 'package:opening_award/src/data/model/banner.dart';
+
+import 'model/show_data.dart';
 import 'model/trade_record.dart';
 import 'test_json.dart';
 
 class TestData {
   static List<TradeRecord> _homeDatas;
+  static List<BannerData> _homeBannerDatas;
+  static List<BannerData> _homeNoticeDatas;
+  static List<ShowData> _homeShowDatas;
   static List<TradeRecord> _recordInsideDatas;
   static List<TradeRecord> _recordOutsideDatas;
   static List<TradeRecord> _recordAgentDatas;
@@ -32,6 +38,36 @@ class TestData {
   /// 首页测试数据
   static List<TradeRecord> getHomeData() =>
       _homeDatas ??= _$datas(TestJson.homeJson);
+
+  /// HOME-BANNER
+  static List<BannerData> getHomeBannerData() {
+    if (_homeBannerDatas != null) return _homeBannerDatas;
+    List<BannerData> list = List();
+    List listJson = json.decode(TestJson.homeBanner);
+    list = listJson.map((i) => BannerData.fromJson(i)).toList();
+    _homeBannerDatas = list;
+    return _homeBannerDatas;
+  }
+
+  /// HOME-NOTICE
+  static List<BannerData> getHomeNoticeData() {
+    if (_homeNoticeDatas != null) return _homeNoticeDatas;
+    List<BannerData> list = List();
+    List listJson = json.decode(TestJson.homeNotice);
+    list = listJson.map((i) => BannerData.fromJson(i)).toList();
+    _homeNoticeDatas = list;
+    return _homeNoticeDatas;
+  }
+
+  /// HOME-SHOW
+  static List<ShowData> getHomeShowData() {
+    if (_homeShowDatas != null) return _homeShowDatas;
+    List<ShowData> list = List();
+    List listJson = json.decode(TestJson.homeShow);
+    list = listJson.map((i) => ShowData.fromJson(i)).toList();
+    _homeShowDatas = list;
+    return _homeShowDatas;
+  }
 
   /// 记录-inside
   static List<TradeRecord> getRecordInsideData() =>

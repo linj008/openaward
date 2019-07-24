@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:opening_award/src/data/model/banner.dart';
 
 //公告栏动画 垂直淡入淡出
 class NoticeVecAnimation extends StatefulWidget {
   final Duration duration;
-  final List<String> messages;
+  final List<BannerData> notices;
 
   const NoticeVecAnimation({
     Key key,
     this.duration = const Duration(milliseconds: 3000),
-    this.messages,
+    this.notices,
   }) : super(key: key);
 
   @override
   _NoticeVecAnimationState createState() {
-    // TODO: implement createState
     return _NoticeVecAnimationState();
   }
 }
 
 class _NoticeVecAnimationState extends State<NoticeVecAnimation>
-    with TickerProviderStateMixin{
+    with TickerProviderStateMixin {
   AnimationController _controller;
 
   int _nextMassage = 0;
@@ -33,7 +33,6 @@ class _NoticeVecAnimationState extends State<NoticeVecAnimation>
   @override
   Widget build(BuildContext context) {
     //正向开启动画
-    // TODO: implement build
     return SlideTransition(
       position: _positionAni2,
       child: FadeTransition(
@@ -44,12 +43,17 @@ class _NoticeVecAnimationState extends State<NoticeVecAnimation>
             opacity: _opacityAni1,
             child: Row(
               children: <Widget>[
-                Expanded(child: Text(widget.messages == null ? "":
-                  widget.messages[_nextMassage],
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(color: Colors.black54),
-                ),),
+                Expanded(
+                  child: Text(
+                    widget.notices == null
+                        ? ''
+                        : widget.notices[_nextMassage].title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                        color: Colors.black),
+                  ),
+                ),
               ],
             ),
           ),
@@ -60,7 +64,6 @@ class _NoticeVecAnimationState extends State<NoticeVecAnimation>
 
   //纵向滚动
   void _startVerticalAni() {
-    // TODO: implement initState
     _controller = AnimationController(duration: widget.duration, vsync: this);
 
     _opacityAni1 = Tween<double>(begin: 0.0, end: 1.0).animate(
@@ -94,7 +97,8 @@ class _NoticeVecAnimationState extends State<NoticeVecAnimation>
         if (status == AnimationStatus.completed) {
           setState(() {
             _nextMassage++;
-            if (_nextMassage >= (widget.messages == null ? 0:  widget.messages.length)) {
+            if (_nextMassage >=
+                (widget.notices == null ? 0 : widget.notices.length)) {
               _nextMassage = 0;
             }
           });
@@ -120,5 +124,4 @@ class _NoticeVecAnimationState extends State<NoticeVecAnimation>
     super.initState();
     _startVerticalAni();
   }
-
 }

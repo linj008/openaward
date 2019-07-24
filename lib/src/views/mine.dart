@@ -32,12 +32,13 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(title: Text("我的账户"), actions: <Widget>[
-          GestureDetector(
+        appBar: AppBar(title: Text('我的账户'), actions: <Widget>[
+          InkWell(
+              onTap: () {},
               child: Container(
-                  margin: EdgeInsets.only(right: 16),
-                  child: Image.asset("assets/images/ic_set.png",
-                      height: 24, width: 24)))
+                  padding:
+                      EdgeInsets.only(left: 8, top: 16, right: 8, bottom: 16),
+                  child: Image.asset('assets/images/ic_set.png')))
         ]),
         body: Column(children: <Widget>[
           Container(
@@ -64,7 +65,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
                                         color: Colors.white, width: 2)),
                                 child: ClipOval(
                                     child: Image.asset(
-                                        "assets/images/logo.jpeg",
+                                        'assets/images/logo.jpeg',
                                         height: 60,
                                         width: 60))),
                             Container(
@@ -127,7 +128,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
   }
 
   Widget _buildGridItem(Menu menu) {
-    return GestureDetector(
+    return InkWell(
         onTap: () {},
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

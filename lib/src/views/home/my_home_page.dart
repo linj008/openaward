@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'home_data.dart';
@@ -6,6 +5,7 @@ import 'home_data.dart';
 class _HomeState extends State<MyHomePage> with SingleTickerProviderStateMixin {
   TabController mController;
   List<TabTitle> tabList;
+
   @override
   void initState() {
     super.initState();
@@ -53,9 +53,14 @@ class _HomeState extends State<MyHomePage> with SingleTickerProviderStateMixin {
             child: TabBarView(
               controller: mController,
               children: tabList.map((item) {
-                return Stack(children: <Widget>[
-                  Align(alignment:Alignment.topCenter,child: item.widget,),
-                ],);
+                return Stack(
+                  children: <Widget>[
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: item.widget,
+                    ),
+                  ],
+                );
               }).toList(),
             ),
           )
@@ -65,12 +70,13 @@ class _HomeState extends State<MyHomePage> with SingleTickerProviderStateMixin {
   }
 }
 
-class MyHomePage extends StatefulWidget{
+class MyHomePage extends StatefulWidget {
   final List<TabTitle> children;
+
   const MyHomePage({
     Key key,
     @required this.children,
-  }) : assert(children != null),
+  })  : assert(children != null),
         super(key: key);
 
   @override
