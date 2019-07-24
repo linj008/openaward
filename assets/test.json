@@ -1,26 +1,20 @@
 [
   {
     "id": 0,
-    "name": "BTC/USDT",
-    "point": 1065.27,
-    "percent": 0.48,
-    "money": 7000.01,
-    "isPlus": true
+    "picUrl": "",
+    "httpUrl": "https://www.baidu.com/",
+    "title": "7月13日停服公告"
   },
   {
-    "id": 1,
-    "name": "ETH/USDT",
-    "point": 1065.27,
-    "percent": 0.04,
-    "money": 7000.01,
-    "isPlus": false
+    "id": 0,
+    "picUrl": "",
+    "httpUrl": "https://www.baidu.com/",
+    "title": "定投功能重磅上线"
   },
   {
-    "id": 2,
-    "name": "EOS/USDT",
-    "point": 1065.27,
-    "percent": 2.00,
-    "money": 7000.01,
-    "isPlus": true
+    "id": 0,
+    "picUrl": "",
+    "httpUrl": "https://www.baidu.com/",
+    "title": "2020年更新3.0版本"
   }
 ]

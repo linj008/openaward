@@ -9,6 +9,8 @@ import 'package:opening_award/src/data/test_data.dart';
 import 'package:opening_award/src/views/widget/trade_item.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
+import 'noticeVec_animation_wedgit.dart';
+
 // ignore: must_be_immutable
 class HomePage extends BaseStatefulWidget {
   @override
@@ -22,6 +24,7 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
   List<TradeRecord> _datas;
   List<BannerData> _bannerDatas;
   List<ShowData> _showDatas;
+  List<BannerData> _noticeDatas;
 
   @override
   void initState() {
@@ -29,6 +32,7 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
     this._datas = TestData.getHomeData();
     this._bannerDatas = TestData.getHomeBannerData();
     this._showDatas = TestData.getHomeShowData();
+    this._noticeDatas = TestData.getHomeNoticeData();
   }
 
   @override
@@ -78,17 +82,7 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
               itemBuilder: (BuildContext context, int index) {
                 return _buildGridItem(_showDatas[index]);
               }),
-          Column(children: <Widget>[
-            Container(color: Color(0xfff8f8f8), height: 8),
-            Container(
-                padding: EdgeInsets.only(top: 8, bottom: 8),
-                child: Text('doing',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16))),
-            Container(color: Color(0xfff8f8f8), height: 8)
-          ]),
+          _buildNotice(),
           ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
@@ -128,6 +122,94 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
           Text('${showData.money} CNY',
               style: TextStyle(color: Colors.grey, fontSize: 14))
         ]);
+  }
+
+  Widget _buildNotice() {
+    return Column(children: <Widget>[
+      Container(color: Color(0xfff8f8f8), height: 8),
+      Container(
+          padding: EdgeInsets.all(16),
+          child: Column(children: <Widget>[
+            Container(
+                padding: EdgeInsets.only(bottom: 16),
+                child: Row(children: <Widget>[
+                  Text('最新资讯: ',
+                      style: TextStyle(
+                          color: Colors.blueAccent,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold)),
+                  Expanded(child: NoticeVecAnimation(notices: _noticeDatas))
+                ])),
+            Row(children: <Widget>[
+              Expanded(
+                  child: Container(
+                      decoration: BoxDecoration(
+                          color: Color(0xfff8f8f8),
+                          borderRadius: BorderRadius.all(Radius.circular(8))),
+                      padding: EdgeInsets.all(16),
+                      margin: EdgeInsets.only(right: 8),
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text('EOS定投专区',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold)),
+                            Container(
+                                margin: EdgeInsets.only(top: 8, bottom: 8),
+                                child: Text('长期稳定高收益',
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 12))),
+                            Container(
+                                padding: EdgeInsets.only(
+                                    left: 8, top: 2, right: 8, bottom: 2),
+                                decoration: BoxDecoration(
+                                    color: Color(0xffFF585C),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10))),
+                                child: Text('热门服务',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 12)))
+                          ]))),
+              Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Container(
+                        decoration: BoxDecoration(
+                            color: Color(0xfff8f8f8),
+                            borderRadius: BorderRadius.all(Radius.circular(8))),
+                        padding: EdgeInsets.only(
+                            left: 32, top: 8, right: 32, bottom: 8),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Image.asset('assets/images/ic_gift.png',
+                                  height: 18, width: 18),
+                              Text('    邀请好友',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 14))
+                            ])),
+                    Container(
+                        decoration: BoxDecoration(
+                            color: Color(0xfff8f8f8),
+                            borderRadius: BorderRadius.all(Radius.circular(8))),
+                        padding: EdgeInsets.only(
+                            left: 32, top: 8, right: 32, bottom: 8),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Image.asset('assets/images/ic_help.png',
+                                  height: 18, width: 18),
+                              Text('    帮助中心',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 14))
+                            ]))
+                  ])
+            ])
+          ])),
+      Container(color: Color(0xfff8f8f8), height: 8)
+    ]);
   }
 
   Color _$color(bool isPlus) =>

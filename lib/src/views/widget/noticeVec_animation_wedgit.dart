@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:opening_award/src/data/model/banner.dart';
 
 //公告栏动画 垂直淡入淡出
 class NoticeVecAnimation extends StatefulWidget {
   final Duration duration;
-  final List<BannerData> notices;
+  final List<String> messages;
 
   const NoticeVecAnimation({
     Key key,
     this.duration = const Duration(milliseconds: 3000),
-    this.notices,
+    this.messages,
   }) : super(key: key);
 
   @override
   _NoticeVecAnimationState createState() {
+    // TODO: implement createState
     return _NoticeVecAnimationState();
   }
 }
@@ -33,6 +33,7 @@ class _NoticeVecAnimationState extends State<NoticeVecAnimation>
   @override
   Widget build(BuildContext context) {
     //正向开启动画
+    // TODO: implement build
     return SlideTransition(
       position: _positionAni2,
       child: FadeTransition(
@@ -45,13 +46,12 @@ class _NoticeVecAnimationState extends State<NoticeVecAnimation>
               children: <Widget>[
                 Expanded(
                   child: Text(
-                    widget.notices == null
-                        ? ''
-                        : widget.notices[_nextMassage].title,
+                    widget.messages == null
+                        ? ""
+                        : widget.messages[_nextMassage],
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        color: Colors.black),
+                    style: TextStyle(color: Colors.black54),
                   ),
                 ),
               ],
@@ -64,6 +64,7 @@ class _NoticeVecAnimationState extends State<NoticeVecAnimation>
 
   //纵向滚动
   void _startVerticalAni() {
+    // TODO: implement initState
     _controller = AnimationController(duration: widget.duration, vsync: this);
 
     _opacityAni1 = Tween<double>(begin: 0.0, end: 1.0).animate(
@@ -98,7 +99,7 @@ class _NoticeVecAnimationState extends State<NoticeVecAnimation>
           setState(() {
             _nextMassage++;
             if (_nextMassage >=
-                (widget.notices == null ? 0 : widget.notices.length)) {
+                (widget.messages == null ? 0 : widget.messages.length)) {
               _nextMassage = 0;
             }
           });

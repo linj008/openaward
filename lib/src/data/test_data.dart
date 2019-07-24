@@ -8,6 +8,7 @@ import 'test_json.dart';
 class TestData {
   static List<TradeRecord> _homeDatas;
   static List<BannerData> _homeBannerDatas;
+  static List<BannerData> _homeNoticeDatas;
   static List<ShowData> _homeShowDatas;
   static List<TradeRecord> _recordInsideDatas;
   static List<TradeRecord> _recordOutsideDatas;
@@ -46,6 +47,16 @@ class TestData {
     list = listJson.map((i) => BannerData.fromJson(i)).toList();
     _homeBannerDatas = list;
     return _homeBannerDatas;
+  }
+
+  /// HOME-NOTICE
+  static List<BannerData> getHomeNoticeData() {
+    if (_homeNoticeDatas != null) return _homeNoticeDatas;
+    List<BannerData> list = List();
+    List listJson = json.decode(TestJson.homeNotice);
+    list = listJson.map((i) => BannerData.fromJson(i)).toList();
+    _homeNoticeDatas = list;
+    return _homeNoticeDatas;
   }
 
   /// HOME-SHOW

@@ -33,11 +33,12 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(title: Text('我的账户'), actions: <Widget>[
-          GestureDetector(
+          InkWell(
+              onTap: () {},
               child: Container(
-                  margin: EdgeInsets.only(right: 16),
-                  child: Image.asset('assets/images/ic_set.png',
-                      height: 24, width: 24)))
+                  padding:
+                      EdgeInsets.only(left: 8, top: 16, right: 8, bottom: 16),
+                  child: Image.asset('assets/images/ic_set.png')))
         ]),
         body: Column(children: <Widget>[
           Container(

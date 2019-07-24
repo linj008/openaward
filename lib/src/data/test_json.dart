@@ -85,6 +85,26 @@ class TestJson {
     "httpUrl": "https://www.baidu.com/"
   }
 ]""";
+  static String homeNotice = """[
+  {
+    "id": 0,
+    "picUrl": "",
+    "httpUrl": "https://www.baidu.com/",
+    "title": "7月13日停服公告"
+  },
+  {
+    "id": 0,
+    "picUrl": "",
+    "httpUrl": "https://www.baidu.com/",
+    "title": "定投功能重磅上线"
+  },
+  {
+    "id": 0,
+    "picUrl": "",
+    "httpUrl": "https://www.baidu.com/",
+    "title": "2020年更新3.0版本"
+  }
+]""";
   static String homeShow = """[
   {
     "id": 0,
