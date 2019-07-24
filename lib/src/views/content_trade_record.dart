@@ -86,6 +86,7 @@ class _TradeRecordPageState
             children: <Widget>[
               TabBar(
                 tabs: _textList,
+                //indicator: ColorTabIndicator(Colors.black),
                 indicatorColor: APPStyle.heightLightGreen,
                 controller: _tabController,
               ),

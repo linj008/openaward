@@ -7,6 +7,7 @@ enum ThemeType {
 
 class APPStyle {
   static Color themeColor = Color(0xFFffffff);
+  static Color themeTextColor = Color(0xFFffffff);
   static Color background = Colors.black12;
   static Color selectBackground = Colors.white;
   static Color heightLightGreen = Color(0xFF68BA7A);
