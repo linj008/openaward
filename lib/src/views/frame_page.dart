@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:opening_award/src/common/app_style.dart';
 import 'package:opening_award/src/common/base_data.dart';
 import 'package:opening_award/src/common/weight/base_stateful_widget.dart';
-import 'package:opening_award/src/views/page_data.dart';
+import 'package:opening_award/src/data/model/page_data.dart';
 import 'package:opening_award/src/views/trade_page.dart';
 
 import 'content_trade_record.dart';
 import 'home/home_page.dart';
 import 'lottery_control.dart';
 import 'mine.dart';
-import 'situation_page.dart';
 
+/// main页面
+// ignore: must_be_immutable
 class FramePage extends BaseStatefulWidget {
   @override
   BaseWidgetState<ViewBasicResponse, BaseStatefulWidget> getState() {
@@ -69,16 +70,16 @@ class _FramePageState extends BaseWidgetState<ViewBasicResponse, FramePage>
     } else {
       return MaterialApp(
         theme: ThemeData(
-          primaryColor: APPStyle.themeColor,
+          primaryColor: S.bgColor,
         ),
         home: Scaffold(
           bottomNavigationBar: new BottomNavigationBar(
             items: buildBottomItems(),
             type: BottomNavigationBarType.fixed,
             currentIndex: _currentIndex,
-            unselectedItemColor: Color(0xFF9D9D9D),
-            selectedItemColor: Color(0xFF3C6AEF),
-            backgroundColor: APPStyle.themeColor,
+            unselectedItemColor: S.secondColor,
+            selectedItemColor: S.themeColor,
+            backgroundColor: S.bgColor,
             onTap: (index) => setState(() {
               _currentIndex = index;
             }),

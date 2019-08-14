@@ -79,7 +79,7 @@ class _TradeRecordPageState
   Widget build(BuildContext context) {
     return Scaffold(
         key: _scaffoldKey,
-        backgroundColor: APPStyle.themeColor,
+        backgroundColor: S.bgColor,
         appBar: AppBar(title: Text('法币交易')),
         body: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -87,7 +87,7 @@ class _TradeRecordPageState
               TabBar(
                 tabs: _textList,
                 //indicator: ColorTabIndicator(Colors.black),
-                indicatorColor: APPStyle.heightLightGreen,
+                indicatorColor: S.themeColor,
                 controller: _tabController,
               ),
               Expanded(
@@ -147,16 +147,16 @@ class _TradeRecordPageState
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset("assets/images/img_order.png", width: 278, height: 202),
-            Text("您当前还没有进行任何挂单",
+            Image.asset(P.png('img_order'), width: 278, height: 202),
+            Text('您当前还没有进行任何挂单',
                 style: new TextStyle(fontSize: 13, color: Colors.grey)),
             Padding(
               padding: EdgeInsets.only(top: 20),
               child: new FlatButton(
                 onPressed: () {},
-                color: Color(0xFF2859E7),
+                color: S.themeColor,
                 child: Text(
-                  "立即挂单",
+                  '立即挂单',
                   style:
                       new TextStyle(fontSize: 13, color: APPStyle.themeColor),
                 ),
@@ -166,7 +166,7 @@ class _TradeRecordPageState
             )
           ],
         ),
-        color: Color(0xFFF8F8F8));
+        color: S.secondColor);
   }
 
   Future<bool> _loadMore() async {

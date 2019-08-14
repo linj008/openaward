@@ -23,14 +23,14 @@ class TradeItemState extends State<TradeItem> {
         onTap: () {},
         child: Column(children: <Widget>[
           Container(
-              color: Colors.white,
+              color: S.bgColor,
               padding: EdgeInsets.all(16),
               child: Column(children: <Widget>[
                 Row(children: <Widget>[
                   Offstage(
                       offstage: _$offstage(_tag),
-                      child: Image.asset('assets/images/logo.jpeg',
-                          height: 14, width: 14)),
+                      child:
+                          Image.asset(P.jpeg('logo'), height: 14, width: 14)),
                   Offstage(
                       offstage: _$offstage(_tag),
                       child: Text(' ${_item.title} ',
@@ -65,12 +65,9 @@ class TradeItemState extends State<TradeItem> {
                           style: TextStyle(color: Colors.grey, fontSize: 14))),
 
                   /// 暂时先写死
-                  Image.asset('assets/images/pay_alipay.png',
-                      height: 14, width: 14),
-                  Image.asset('assets/images/pay_wechat.png',
-                      height: 14, width: 14),
-                  Image.asset('assets/images/pay_yinlian.png',
-                      height: 14, width: 14)
+                  Image.asset(P.png('pay_alipay'), height: 14, width: 14),
+                  Image.asset(P.png('pay_wechat'), height: 14, width: 14),
+                  Image.asset(P.png('pay_yinlian'), height: 14, width: 14)
                 ]),
                 Container(
                     margin: EdgeInsets.only(top: 8),
@@ -102,7 +99,7 @@ class TradeItemState extends State<TradeItem> {
                           textDirection: TextDirection.ltr)
                     ]))
               ])),
-          Container(color: Color(0xfff8f8f8), height: 8)
+          Container(color: S.secondColor, height: 8)
         ]));
   }
 

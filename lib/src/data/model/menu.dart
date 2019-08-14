@@ -3,8 +3,9 @@ class Menu {
   String icon;
   String name;
   List<Menu> children;
+  bool check;
 
-  Menu({this.id, this.icon, this.name, this.children});
+  Menu({this.id, this.icon, this.name, this.children, this.check});
 
   Menu.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -16,6 +17,7 @@ class Menu {
         children.add(Menu.fromJson(v));
       });
     }
+    check = json['check'];
   }
 
   Map<String, dynamic> toJson() {
@@ -26,6 +28,7 @@ class Menu {
     if (this.children != null) {
       data['children'] = this.children.map((v) => v.toJson()).toList();
     }
+    data['check'] = this.check;
     return data;
   }
 }

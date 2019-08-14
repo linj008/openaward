@@ -38,20 +38,20 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: S.bgColor,
         appBar: AppBar(title: Text('Bituex'), actions: <Widget>[
           InkWell(
               onTap: () {},
               child: Container(
                   padding:
                       EdgeInsets.only(left: 8, top: 16, right: 8, bottom: 16),
-                  child: Image.asset('assets/images/ic_scan.png'))),
+                  child: Image.asset(P.png('ic_scan')))),
           InkWell(
               onTap: () {},
               child: Container(
                   padding:
                       EdgeInsets.only(left: 8, top: 16, right: 8, bottom: 16),
-                  child: Image.asset('assets/images/ic_get_money.png')))
+                  child: Image.asset(P.png('ic_get_money'))))
         ]),
         body: ListView(children: <Widget>[
           Container(
@@ -98,7 +98,7 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
     return ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: FadeInImage.assetNetwork(
-            placeholder: 'assets/images/logo.jpeg',
+            placeholder: P.jpeg('logo'),
             image: banner.picUrl,
             fit: BoxFit.fill));
   }
@@ -135,7 +135,7 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
                 child: Row(children: <Widget>[
                   Text('最新资讯: ',
                       style: TextStyle(
-                          color: Colors.blueAccent,
+                          color: S.themeColor,
                           fontSize: 16,
                           fontWeight: FontWeight.bold)),
                   Expanded(child: NoticeVecAnimation(notices: _noticeDatas))
@@ -184,7 +184,7 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Image.asset('assets/images/ic_gift.png',
+                              Image.asset(P.png('ic_gift'),
                                   height: 18, width: 18),
                               Text('    邀请好友',
                                   style: TextStyle(
@@ -200,7 +200,7 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Image.asset('assets/images/ic_help.png',
+                              Image.asset(P.png('ic_help'),
                                   height: 18, width: 18),
                               Text('    帮助中心',
                                   style: TextStyle(
@@ -209,7 +209,7 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
                   ])
             ])
           ])),
-      Container(color: Color(0xfff8f8f8), height: 8)
+      Container(color: S.secondColor, height: 8)
     ]);
   }
 

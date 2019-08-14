@@ -63,7 +63,8 @@ class APPStyle {
 
   void _setDefaultTheme() {
     themeColor = Colors.red;
-    titleTextStyle = TextStyle(fontSize: 16, color: Colors.white,fontWeight:FontWeight.w700);
+    titleTextStyle = TextStyle(
+        fontSize: 16, color: Colors.white, fontWeight: FontWeight.w700);
     maxTextStyle = TextStyle(fontSize: 16, color: Colors.black45);
     midTextStyle = TextStyle(fontSize: 14, color: Colors.black45);
     minTextStyle = TextStyle(fontSize: 12, color: Colors.black45);
@@ -96,4 +97,18 @@ class APPStyle {
     midTextColors = Colors.black45;
     minTextColors = Colors.black26;
   }
+}
+
+class S {
+  static Color themeColor = Color(0xFF4780E9);
+  static Color bgColor = Color(0xFFFFFFFF);
+  static Color secondColor = Color(0xFFF2F2F2);
+  static Color textWhite = Color(0xFFFFFFFF);
+  static Color textBlack = Color(0xFF000000);
+}
+
+class P {
+  static String png(String name) => 'assets/images/$name.png';
+
+  static String jpeg(String name) => 'assets/images/$name.jpeg';
 }

@@ -5,6 +5,7 @@ import 'package:opening_award/src/common/weight/base_stateful_widget.dart';
 import 'package:opening_award/src/data/local_data.dart';
 import 'package:opening_award/src/data/model/menu.dart';
 
+/// 我的页面
 // ignore: must_be_immutable
 class MinePage extends BaseStatefulWidget {
   @override
@@ -31,24 +32,24 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: S.bgColor,
       appBar: AppBar(
-        backgroundColor: Color(0xff4780E9),
+        elevation: 0,
+        backgroundColor: S.themeColor,
         title: Text(
           '我的账户',
           style: TextStyle(
-            color: Colors.white,
+            color: S.textWhite,
           ),
         ),
         actions: <Widget>[
-//            InkWell(
-//              onTap: () {},
-//              child: Container(
-//                padding:
-//                    EdgeInsets.only(left: 8, top: 16, right: 8, bottom: 16),
-//                child: Image.asset('assets/images/ic_set.png'),
-//              ),
+//          InkWell(
+//            onTap: () {},
+//            child: Container(
+//              padding: EdgeInsets.only(left: 8, top: 16, right: 8, bottom: 16),
+//              child: Image.asset(P.png('ic_set')),
 //            ),
+//          ),
         ],
       ),
       body: Column(
@@ -83,7 +84,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
         gradient: LinearGradient(
           colors: [
             Color(0xff1B4EE1),
-            Color(0xff2eb7ff),
+            S.themeColor,
           ],
         ),
         borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -104,13 +105,13 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(60)),
                       border: Border.all(
-                        color: Colors.white,
+                        color: S.textWhite,
                         width: 2,
                       ),
                     ),
                     child: ClipOval(
                       child: Image.asset(
-                        'assets/images/logo.jpeg',
+                        P.jpeg('logo'),
                         height: 60,
                         width: 60,
                       ),
@@ -128,7 +129,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
                         Text(
                           '${_isShow ? '0.00' : '******'}',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: S.textWhite,
                             fontSize: 24,
                           ),
                         ),
@@ -144,9 +145,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
                   });
                 },
                 child: Image.asset(
-                  _isShow
-                      ? 'assets/images/icon_hide.png'
-                      : 'assets/images/icon_display.png',
+                  _isShow ? P.png('icon_hide') : P.png('icon_display'),
                   height: 20,
                   width: 20,
                 ),
@@ -161,7 +160,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
                 style: APPStyle.whiteMidTextStyle,
               ),
               Container(
-                color: Colors.white,
+                color: S.textWhite,
                 width: 1,
                 height: 16,
               ),
@@ -170,7 +169,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
                 style: APPStyle.whiteMidTextStyle,
               ),
               Container(
-                color: Colors.white,
+                color: S.textWhite,
                 width: 1,
                 height: 16,
               ),
@@ -187,7 +186,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
 
   Widget _buildHeader2() {
     return Container(
-      color: Color(0xff4780E9),
+      color: S.themeColor,
       padding: EdgeInsets.only(left: 16, top: 32, right: 16, bottom: 32),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -197,7 +196,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Image.asset(
-                  'assets/images/logo.jpeg',
+                  P.jpeg('logo'),
                   height: 120,
                   width: 100,
                   fit: BoxFit.cover,
@@ -207,7 +206,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
                 right: 4,
                 bottom: 4,
                 child: Image.asset(
-                  "assets/images/ic_order.png",
+                  P.png('ic_order'),
                   height: 24,
                   width: 24,
                 ),
@@ -249,7 +248,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Image.asset(
-            menu.icon,
+            P.png(menu.icon),
             height: 24,
             width: 24,
           ),
@@ -258,7 +257,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
             child: Text(
               menu.name,
               style: TextStyle(
-                color: Colors.black,
+                color: S.textBlack,
                 fontSize: 16,
               ),
             ),
@@ -282,7 +281,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
                 Row(
                   children: <Widget>[
                     Image.asset(
-                      menu.icon,
+                      P.png(menu.icon),
                       height: 24,
                       width: 24,
                     ),
@@ -292,14 +291,14 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
                     Text(
                       menu.name,
                       style: TextStyle(
-                        color: Colors.black,
+                        color: S.textBlack,
                         fontSize: 16,
                       ),
                     ),
                   ],
                 ),
                 Image.asset(
-                  "assets/images/icon_right.png",
+                  P.png('icon_right'),
                   height: 16,
                   width: 16,
                 ),

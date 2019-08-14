@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:opening_award/src/common/app_style.dart';
 import 'package:opening_award/src/common/base_data.dart';
 import 'package:opening_award/src/common/weight/base_stateful_widget.dart';
-import 'package:opening_award/src/data/local_data.dart';
 import 'package:opening_award/src/data/model/menu.dart';
 import 'package:opening_award/src/data/test_data.dart';
 
@@ -31,9 +30,9 @@ class LotteryControlState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: S.bgColor,
       appBar: AppBar(
-        backgroundColor: Color(0xff4780E9),
+        backgroundColor: S.themeColor,
         leading: Builder(
           builder: (BuildContext context) => IconButton(
             icon: Icon(
@@ -46,7 +45,7 @@ class LotteryControlState
         title: Text(
           '彩种控制',
           style: TextStyle(
-            color: Colors.white,
+            color: S.textWhite,
           ),
         ),
       ),
@@ -63,12 +62,13 @@ class LotteryControlState
     return Column(
       children: <Widget>[
         Container(
+          color: S.secondColor,
           height: 50,
           padding: EdgeInsets.only(left: 16, right: 16),
           child: Row(
             children: <Widget>[
               Image.asset(
-                'assets/images/${menu.icon}.png',
+                P.png(menu.icon),
                 height: 24,
                 width: 24,
               ),
@@ -78,7 +78,7 @@ class LotteryControlState
               Text(
                 menu.name,
                 style: TextStyle(
-                  color: Colors.black,
+                  color: S.textBlack,
                   fontSize: 16,
                 ),
               ),
@@ -106,17 +106,18 @@ class LotteryControlState
           child: Row(
             children: <Widget>[
               Checkbox(
-                value: false,
-                activeColor: Colors.blue,
+                value: menu.check,
+                activeColor: S.themeColor,
                 onChanged: (bool val) {
                   setState(() {
+                    menu.check = val;
                   });
                 },
               ),
               Text(
                 menu.name,
                 style: TextStyle(
-                  color: Colors.black,
+                  color: S.textBlack,
                   fontSize: 16,
                 ),
               ),

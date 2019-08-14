@@ -59,14 +59,14 @@ class _SituationPageState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: APPStyle.themeColor,
+      backgroundColor: S.bgColor,
       appBar: AppBar(
         title: Text(
           '行情',
         ),
         bottom: TabBar(
           tabs: _buildTabs(),
-          indicatorColor: APPStyle.heightLightGreen,
+          indicatorColor: S.themeColor,
           controller: _tabController,
           isScrollable: false,
         ),
@@ -82,7 +82,7 @@ class _SituationPageState
       .map((item) => Tab(
             text: item.name,
             icon: Image.asset(
-              'assets/images/${item.icon}.png',
+              P.png(item.icon),
               height: 24,
               width: 24,
             ),
@@ -97,13 +97,8 @@ class _SituationPageState
       .toList();
 
   Widget _buildItem(int index) => Container(
-        color: index % 2 == 0 ? Color(0xFFFFFFFF) : Color(0xFFF2F2F2),
-        padding: EdgeInsets.only(
-          left: 32,
-          top: 16,
-          right: 32,
-          bottom: 16,
-        ),
+        color: index % 2 == 0 ? S.bgColor : S.secondColor,
+        padding: EdgeInsets.only(left: 32, top: 16, right: 32, bottom: 16),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
