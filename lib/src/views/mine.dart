@@ -187,7 +187,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
   Widget _buildHeader2() {
     return Container(
       color: S.themeColor,
-      padding: EdgeInsets.only(left: 16, top: 32, right: 16, bottom: 32),
+      padding: EdgeInsets.only(left: 16, top: 16, right: 16, bottom: 32),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -213,27 +213,29 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
               ),
             ],
           ),
-          Container(
-            margin: EdgeInsets.only(left: 16, right: 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  '昵称: 张良成',
-                  style: APPStyle.whiteMidTextStyle,
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 8, bottom: 8),
-                  child: Text(
-                    '积分: 8900',
+          Expanded(
+            child: Container(
+              margin: EdgeInsets.only(left: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    '昵称: 张良成',
                     style: APPStyle.whiteMidTextStyle,
                   ),
-                ),
-                Text(
-                  '个性签名: 张良成张良成张良成张良成张良成张良成张良成张良成张良成张良成张良成张良成张良成张良成张良成张良成',
-                  style: APPStyle.whiteMidTextStyle,
-                ),
-              ],
+                  Container(
+                    margin: EdgeInsets.only(top: 8, bottom: 8),
+                    child: Text(
+                      '积分: 8900',
+                      style: APPStyle.whiteMidTextStyle,
+                    ),
+                  ),
+                  Text(
+                    '个性签名: *************************************************************************************************************************',
+                    style: APPStyle.whiteMidTextStyle,
+                  ),
+                ],
+              ),
             ),
           ),
         ],
