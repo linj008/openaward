@@ -281,4 +281,132 @@ class TestJson {
     "number": "5,8,4,7,7"
   }
 ]""";
+  static String lotterys = """[
+  {
+    "id": 0,
+    "name": "时时彩",
+    "icon": "ic_order",
+    "children": [
+      {
+        "id": 0,
+        "name": "重庆时时彩",
+        "icon": "ic_order"
+      },
+      {
+        "id": 1,
+        "name": "吉利时时彩",
+        "icon": "ic_order"
+      },
+      {
+        "id": 2,
+        "name": "陕西时时彩",
+        "icon": "ic_order"
+      },
+      {
+        "id": 3,
+        "name": "新疆时时彩",
+        "icon": "ic_order"
+      },
+      {
+        "id": 4,
+        "name": "西藏时时彩",
+        "icon": "ic_order"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "PK10",
+    "icon": "ic_order",
+    "children": [
+      {
+        "id": 0,
+        "name": "东京pk10",
+        "icon": "ic_order"
+      },
+      {
+        "id": 1,
+        "name": "南京pk10",
+        "icon": "ic_order"
+      },
+      {
+        "id": 2,
+        "name": "西京pk10",
+        "icon": "ic_order"
+      },
+      {
+        "id": 3,
+        "name": "北京pk10",
+        "icon": "ic_order"
+      },
+      {
+        "id": 4,
+        "name": "东京2pk10",
+        "icon": "ic_order"
+      },
+      {
+        "id": 5,
+        "name": "南京2pk10",
+        "icon": "ic_order"
+      },
+      {
+        "id": 6,
+        "name": "西京2pk10",
+        "icon": "ic_order"
+      },
+      {
+        "id": 7,
+        "name": "北京2pk10",
+        "icon": "ic_order"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "快3",
+    "icon": "ic_order",
+    "children": [
+      {
+        "id": 0,
+        "name": "江苏0快3",
+        "icon": "ic_order"
+      },
+      {
+        "id": 1,
+        "name": "江苏1快3",
+        "icon": "ic_order"
+      },
+      {
+        "id": 2,
+        "name": "江苏2快3",
+        "icon": "ic_order"
+      },
+      {
+        "id": 3,
+        "name": "江苏3快3",
+        "icon": "ic_order"
+      },
+      {
+        "id": 4,
+        "name": "江苏4快3",
+        "icon": "ic_order"
+      },
+      {
+        "id": 5,
+        "name": "江苏5快3",
+        "icon": "ic_order"
+      },
+      {
+        "id": 6,
+        "name": "江苏6快3",
+        "icon": "ic_order"
+      },
+      {
+        "id": 7,
+        "name": "江苏7快3",
+        "icon": "ic_order"
+      }
+    ]
+  }
+]""";
 }

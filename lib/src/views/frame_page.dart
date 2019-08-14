@@ -7,6 +7,7 @@ import 'package:opening_award/src/views/trade_page.dart';
 
 import 'content_trade_record.dart';
 import 'home/home_page.dart';
+import 'lottery_control.dart';
 import 'mine.dart';
 import 'situation_page.dart';
 
@@ -33,7 +34,7 @@ class _FramePageState extends BaseWidgetState<ViewBasicResponse, FramePage>
     homeModle.pageName = "首页";
 
     PageModle quotationModle = new PageModle();
-    SituationPage situationView = SituationPage();
+    LotteryControlPage situationView = LotteryControlPage();
     quotationModle.page = situationView;
     quotationModle.pageName = "行情";
 

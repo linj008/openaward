@@ -107,4 +107,12 @@ class TestData {
     });
     return _numberRecords;
   }
+
+  /// 彩种
+  static List<Menu> getLotteries() {
+    List<Menu> _lotteries = List();
+    List listJson = json.decode(TestJson.lotterys);
+    _lotteries = listJson.map((i) => Menu.fromJson(i)).toList();
+    return _lotteries;
+  }
 }
