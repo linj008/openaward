@@ -49,7 +49,6 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          centerTitle: true,
           title: Text(
             "币币交易",
             style: TextStyle(fontSize: 18),

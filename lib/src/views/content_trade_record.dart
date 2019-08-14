@@ -78,27 +78,27 @@ class _TradeRecordPageState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        key: _scaffoldKey,
-        backgroundColor: S.bgColor,
-        appBar: AppBar(title: Text('法币交易')),
-        body: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              TabBar(
-                tabs: _textList,
-                //indicator: ColorTabIndicator(Colors.black),
-                indicatorColor: S.themeColor,
-                controller: _tabController,
-              ),
-              Expanded(
-                  child:
-                      TabBarView(controller: _tabController, children: <Widget>[
-                _buildListView(_insideDatas),
-                _buildListView(_outsideDatas),
-                buildMyOrderList(),
-                _buildListView(_orderDatas)
-              ]))
-            ]));
+      key: _scaffoldKey,
+      backgroundColor: S.bgColor,
+      appBar: AppBar(
+        title: Text('法币交易'),
+        bottom: TabBar(
+          tabs: _textList,
+          //indicator: ColorTabIndicator(Colors.black),
+          indicatorColor: S.themeColor,
+          controller: _tabController,
+        ),
+      ),
+      body: TabBarView(
+        controller: _tabController,
+        children: <Widget>[
+          _buildListView(_insideDatas),
+          _buildListView(_outsideDatas),
+          buildMyOrderList(),
+          _buildListView(_orderDatas),
+        ],
+      ),
+    );
   }
 
   @override
