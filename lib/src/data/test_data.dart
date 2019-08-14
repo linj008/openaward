@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:opening_award/src/data/model/banner.dart';
 
+import 'model/menu.dart';
+import 'model/number_record.dart';
 import 'model/show_data.dart';
 import 'model/trade_record.dart';
 import 'test_json.dart';
@@ -14,6 +16,7 @@ class TestData {
   static List<TradeRecord> _recordOutsideDatas;
   static List<TradeRecord> _recordAgentDatas;
   static List<TradeRecord> _recordOrderDatas;
+  static List<Menu> _lotteryTypes;
 
   static List<TradeRecord> _$datas(String testJson) {
     List<TradeRecord> list = List();
@@ -84,4 +87,24 @@ class TestData {
   /// 记录-agent
   static List<TradeRecord> getRecordOrderData() =>
       _$testData(_recordOrderDatas, _$datas(TestJson.recordOrder)[0]);
+
+  /// 行情-类型
+  static List<Menu> getLotteryType() {
+    if (_lotteryTypes != null) return _lotteryTypes;
+    _lotteryTypes = List();
+    List listJson = json.decode(TestJson.lotteryType);
+    _lotteryTypes = listJson.map((i) => Menu.fromJson(i)).toList();
+    return _lotteryTypes;
+  }
+
+  /// 行情-开奖记录
+  static List<NumberRecord> getNumberRecords(int id) {
+    List<NumberRecord> _numberRecords = List();
+    List listJson = json.decode(TestJson.numberRecord);
+    _numberRecords = listJson.map((i) => NumberRecord.fromJson(i)).toList();
+    _numberRecords.forEach((item) {
+      item.code = '${item.code}$id';
+    });
+    return _numberRecords;
+  }
 }

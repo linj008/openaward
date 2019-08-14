@@ -24,18 +24,33 @@ class LocalJson {
   static String listMenu = """[
   {
     "id": 0,
-    "icon": "assets/images/icon_right.png",
-    "name": "信用评分"
+    "icon": "assets/images/ic_order.png",
+    "name": "个人信息"
   },
   {
     "id": 1,
-    "icon": "assets/images/icon_right.png",
-    "name": "邀请好友"
+    "icon": "assets/images/ic_order.png",
+    "name": "版面控制"
   },
   {
     "id": 2,
-    "icon": "assets/images/icon_right.png",
-    "name": "加入社群"
+    "icon": "assets/images/ic_order.png",
+    "name": "计划控制"
+  },
+  {
+    "id": 3,
+    "icon": "assets/images/ic_order.png",
+    "name": "彩种控制"
+  },
+  {
+    "id": 4,
+    "icon": "assets/images/ic_order.png",
+    "name": "意见反馈"
+  },
+  {
+    "id": 5,
+    "icon": "assets/images/ic_order.png",
+    "name": "退出"
   }
 ]""";
 }

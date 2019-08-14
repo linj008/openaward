@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:opening_award/src/common/app_style.dart';
 import 'package:opening_award/src/common/base_data.dart';
@@ -9,6 +8,7 @@ import 'package:opening_award/src/views/trade_page.dart';
 import 'content_trade_record.dart';
 import 'home/home_page.dart';
 import 'mine.dart';
+import 'situation_page.dart';
 
 class FramePage extends BaseStatefulWidget {
   @override
@@ -33,8 +33,8 @@ class _FramePageState extends BaseWidgetState<ViewBasicResponse, FramePage>
     homeModle.pageName = "首页";
 
     PageModle quotationModle = new PageModle();
-    MinePage mineView = MinePage();
-    quotationModle.page = mineView;
+    SituationPage situationView = SituationPage();
+    quotationModle.page = situationView;
     quotationModle.pageName = "行情";
 
     PageModle tradeModle = new PageModle();
@@ -44,14 +44,14 @@ class _FramePageState extends BaseWidgetState<ViewBasicResponse, FramePage>
 
     PageModle recordModel = new PageModle();
     TradeRecordPage tradeRecordPage = TradeRecordPage();
-    recordModel.page =  tradeRecordPage;
+    recordModel.page = tradeRecordPage;
     recordModel.pageName = "法币";
 
     PageModle mineModle = new PageModle();
     MinePage minePage = MinePage();
-    mineModle.page =  minePage;
+    mineModle.page = minePage;
     mineModle.pageName = "我的";
-    _pageList = [homeModle,quotationModle, tradeModle,recordModel, mineModle];
+    _pageList = [homeModle, quotationModle, tradeModle, recordModel, mineModle];
     controller = new TabController(length: _pageList.length, vsync: this);
     controller.addListener(() => _currentIndex = controller.index);
   }
@@ -78,10 +78,9 @@ class _FramePageState extends BaseWidgetState<ViewBasicResponse, FramePage>
             unselectedItemColor: Color(0xFF9D9D9D),
             selectedItemColor: Color(0xFF3C6AEF),
             backgroundColor: APPStyle.themeColor,
-            onTap: (index) =>
-                setState(() {
-                  _currentIndex = index;
-                }),
+            onTap: (index) => setState(() {
+              _currentIndex = index;
+            }),
           ),
           body: IndexedStack(
             index: _currentIndex,
@@ -95,7 +94,7 @@ class _FramePageState extends BaseWidgetState<ViewBasicResponse, FramePage>
   }
 
   Widget buildIcon(PageModle item) {
-    Widget icon ;
+    Widget icon;
     switch (item.pageName) {
       case "首页":
         icon = Icon(Icons.home);

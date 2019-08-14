@@ -207,4 +207,78 @@ class TestJson {
     "type": 3
   }
 ]""";
+  static String lotteryType = """[
+  {
+    "id": null,
+    "icon": "ic_order",
+    "name": "全部"
+  },
+  {
+    "id": 0,
+    "icon": "ic_order",
+    "name": "PK10"
+  },
+  {
+    "id": 1,
+    "icon": "ic_order",
+    "name": "时时彩"
+  },
+  {
+    "id": 2,
+    "icon": "ic_order",
+    "name": "快3"
+  },
+  {
+    "id": 3,
+    "icon": "ic_order",
+    "name": "快乐8"
+  },
+  {
+    "id": 4,
+    "icon": "ic_order",
+    "name": "11选5"
+  }
+]""";
+  static String numberRecord = """[
+  {
+    "id": 0,
+    "code": "20190621-031",
+    "number": "5,8,4,7,7"
+  },
+  {
+    "id": 1,
+    "code": "20190621-031",
+    "number": "5,8,4,7,7"
+  },
+  {
+    "id": 2,
+    "code": "20190621-031",
+    "number": "5,8,4,7,7"
+  },
+  {
+    "id": 3,
+    "code": "20190621-031",
+    "number": "5,8,4,7,7"
+  },
+  {
+    "id": 4,
+    "code": "20190621-031",
+    "number": "5,8,4,7,7"
+  },
+  {
+    "id": 5,
+    "code": "20190621-031",
+    "number": "5,8,4,7,7"
+  },
+  {
+    "id": 6,
+    "code": "20190621-031",
+    "number": "5,8,4,7,7"
+  },
+  {
+    "id": 7,
+    "code": "20190621-031",
+    "number": "5,8,4,7,7"
+  }
+]""";
 }
