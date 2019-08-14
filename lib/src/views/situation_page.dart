@@ -92,14 +92,12 @@ class _SituationPageState
   List<Widget> _buildTabViews() => _tabTypes
       .map((item) => ListView.builder(
             itemCount: _numberRecords.length,
-            itemBuilder: (BuildContext context, int i) => _buildItem(index: i),
+            itemBuilder: (BuildContext context, int i) => _buildItem(i),
           ))
       .toList();
 
-  Widget _buildItem({int index}) => Container(
-        color: index == null
-            ? Color(0xFFF2F2F2)
-            : index % 2 == 0 ? Color(0xFFFFFFFF) : Color(0xFFF2F2F2),
+  Widget _buildItem(int index) => Container(
+        color: index % 2 == 0 ? Color(0xFFFFFFFF) : Color(0xFFF2F2F2),
         padding: EdgeInsets.only(
           left: 32,
           top: 16,
@@ -111,10 +109,10 @@ class _SituationPageState
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
-              index == null ? '期号' : '${_numberRecords[index].code}',
+              '${_numberRecords[index].code}',
             ),
             Text(
-              index == null ? '开奖号码' : '${_numberRecords[index].number}',
+              '${_numberRecords[index].number}',
             ),
           ],
         ),
