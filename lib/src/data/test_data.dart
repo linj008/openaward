@@ -1,15 +1,14 @@
 import 'dart:convert';
 import 'package:opening_award/src/data/model/banner.dart';
 
+import 'model/menu.dart';
+import 'model/number_record.dart';
 import 'model/show_data.dart';
 import 'model/trade_record.dart';
 import 'test_json.dart';
 
 class TestData {
   static List<TradeRecord> _homeDatas;
-  static List<BannerData> _homeBannerDatas;
-  static List<BannerData> _homeNoticeDatas;
-  static List<ShowData> _homeShowDatas;
   static List<TradeRecord> _recordInsideDatas;
   static List<TradeRecord> _recordOutsideDatas;
   static List<TradeRecord> _recordAgentDatas;
@@ -41,31 +40,25 @@ class TestData {
 
   /// HOME-BANNER
   static List<BannerData> getHomeBannerData() {
-    if (_homeBannerDatas != null) return _homeBannerDatas;
-    List<BannerData> list = List();
+    List<BannerData> _homeBannerDatas = List();
     List listJson = json.decode(TestJson.homeBanner);
-    list = listJson.map((i) => BannerData.fromJson(i)).toList();
-    _homeBannerDatas = list;
+    _homeBannerDatas = listJson.map((i) => BannerData.fromJson(i)).toList();
     return _homeBannerDatas;
   }
 
   /// HOME-NOTICE
   static List<BannerData> getHomeNoticeData() {
-    if (_homeNoticeDatas != null) return _homeNoticeDatas;
-    List<BannerData> list = List();
+    List<BannerData> _homeNoticeDatas = List();
     List listJson = json.decode(TestJson.homeNotice);
-    list = listJson.map((i) => BannerData.fromJson(i)).toList();
-    _homeNoticeDatas = list;
+    _homeNoticeDatas = listJson.map((i) => BannerData.fromJson(i)).toList();
     return _homeNoticeDatas;
   }
 
   /// HOME-SHOW
   static List<ShowData> getHomeShowData() {
-    if (_homeShowDatas != null) return _homeShowDatas;
-    List<ShowData> list = List();
+    List<ShowData> _homeShowDatas = List();
     List listJson = json.decode(TestJson.homeShow);
-    list = listJson.map((i) => ShowData.fromJson(i)).toList();
-    _homeShowDatas = list;
+    _homeShowDatas = listJson.map((i) => ShowData.fromJson(i)).toList();
     return _homeShowDatas;
   }
 
@@ -84,4 +77,33 @@ class TestData {
   /// 记录-agent
   static List<TradeRecord> getRecordOrderData() =>
       _$testData(_recordOrderDatas, _$datas(TestJson.recordOrder)[0]);
+
+  /// 行情-类型
+  static List<Menu> getLotteryType() {
+    List<Menu> _lotteryTypes = List();
+    List listJson = json.decode(TestJson.lotteryType);
+    _lotteryTypes = listJson.map((i) => Menu.fromJson(i)).toList();
+    return _lotteryTypes;
+  }
+
+  /// 行情-开奖记录
+  static List<NumberRecord> getNumberRecords(int id) {
+    List<NumberRecord> _numberRecords = List();
+    List listJson = json.decode(TestJson.numberRecord);
+    _numberRecords = listJson.map((i) => NumberRecord.fromJson(i)).toList();
+    _numberRecords.map((item) => item.code = '${item.code}$id').toList();
+    return _numberRecords;
+  }
+
+  /// 彩种
+  static List<Menu> getLotteries() {
+    List<Menu> _lotteries = List();
+    List listJson = json.decode(TestJson.lotterys);
+    _lotteries = listJson.map((i) => Menu.fromJson(i)).toList();
+    _lotteries
+        .map((item) =>
+            item.children.map((child) => child.check = false).toList())
+        .toList();
+    return _lotteries;
+  }
 }

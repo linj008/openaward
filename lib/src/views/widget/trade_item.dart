@@ -20,90 +20,156 @@ class TradeItemState extends State<TradeItem> {
     if (_item == null) return null;
     final _tag = widget.tag;
     return GestureDetector(
-        onTap: () {},
-        child: Column(children: <Widget>[
+      onTap: () {},
+      child: Column(
+        children: <Widget>[
           Container(
-              color: Colors.white,
-              padding: EdgeInsets.all(16),
-              child: Column(children: <Widget>[
-                Row(children: <Widget>[
-                  Offstage(
+            color: S.bgColor,
+            padding: EdgeInsets.all(16),
+            child: Column(
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Offstage(
                       offstage: _$offstage(_tag),
-                      child: Image.asset('assets/images/logo.jpeg',
-                          height: 14, width: 14)),
-                  Offstage(
+                      child: Image.asset(
+                        P.jpeg('default_person'),
+                        height: 14,
+                        width: 14,
+                      ),
+                    ),
+                    Offstage(
                       offstage: _$offstage(_tag),
-                      child: Text(' ${_item.title} ',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16))),
-                  Expanded(
-                      child: Text('${_item.price} CNY',
-                          style: TextStyle(
-                              color: _$color(_item.type),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16))),
-                  Container(
+                      child: Text(
+                        ' ${_item.title} ',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        '${_item.price} CNY',
+                        style: TextStyle(
+                          color: _$color(_item.type),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                    Container(
                       height: 30.0,
                       width: 60.0,
                       child: FlatButton(
-                          onPressed: () {},
-                          color: _$color(_item.type),
-                          child: Text(_$text(_item.type),
-                              style:
-                                  TextStyle(fontSize: 14, color: Colors.white)),
-                          shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(15)))))
-                ]),
+                        onPressed: () {},
+                        color: _$color(_item.type),
+                        child: Text(
+                          _$text(_item.type),
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                          ),
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
                 Divider(color: Colors.transparent),
-                Row(children: <Widget>[
-                  Expanded(
+                Row(
+                  children: <Widget>[
+                    Expanded(
                       child: Text(
-                          '${_item.name} ${_item.num}单 完成率${_item.percent}%',
-                          style: TextStyle(color: Colors.grey, fontSize: 14))),
+                        '${_item.name} ${_item.num}单 完成率${_item.percent}%',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
 
-                  /// 暂时先写死
-                  Image.asset('assets/images/pay_alipay.png',
-                      height: 14, width: 14),
-                  Image.asset('assets/images/pay_wechat.png',
-                      height: 14, width: 14),
-                  Image.asset('assets/images/pay_yinlian.png',
-                      height: 14, width: 14)
-                ]),
+                    /// 暂时先写死
+                    Image.asset(
+                      P.png('pay_alipay'),
+                      height: 14,
+                      width: 14,
+                    ),
+                    Image.asset(
+                      P.png('pay_wechat'),
+                      height: 14,
+                      width: 14,
+                    ),
+                    Image.asset(
+                      P.png('pay_yinlian'),
+                      height: 14,
+                      width: 14,
+                    ),
+                  ],
+                ),
                 Container(
-                    margin: EdgeInsets.only(top: 8),
-                    child: Row(children: <Widget>[
+                  margin: EdgeInsets.only(top: 8),
+                  child: Row(
+                    children: <Widget>[
                       Expanded(
-                          child: RichText(
-                              text: TextSpan(
-                                  style: TextStyle(fontSize: 14),
-                                  children: [
-                                    TextSpan(
-                                        text: '数量 ',
-                                        style: TextStyle(color: Colors.black)),
-                                    TextSpan(
-                                        text: '${_item.count}',
-                                        style: TextStyle(color: Colors.grey))
-                                  ]),
-                              textDirection: TextDirection.ltr)),
-                      RichText(
+                        child: RichText(
                           text: TextSpan(
-                              style: TextStyle(fontSize: 14),
-                              children: [
-                                TextSpan(
-                                    text: '限额 ',
-                                    style: TextStyle(color: Colors.black)),
-                                TextSpan(
-                                    text: '${_item.minLimit}-${_item.maxLimit}',
-                                    style: TextStyle(color: Colors.grey))
-                              ]),
-                          textDirection: TextDirection.ltr)
-                    ]))
-              ])),
-          Container(color: Color(0xfff8f8f8), height: 8)
-        ]));
+                            style: TextStyle(
+                              fontSize: 14,
+                            ),
+                            children: [
+                              TextSpan(
+                                text: '数量 ',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              ),
+                              TextSpan(
+                                text: '${_item.count}',
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ],
+                          ),
+                          textDirection: TextDirection.ltr,
+                        ),
+                      ),
+                      RichText(
+                        text: TextSpan(
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
+                          children: [
+                            TextSpan(
+                              text: '限额 ',
+                              style: TextStyle(
+                                color: Colors.black,
+                              ),
+                            ),
+                            TextSpan(
+                              text: '${_item.minLimit}-${_item.maxLimit}',
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ],
+                        ),
+                        textDirection: TextDirection.ltr,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(color: S.secondColor, height: 8),
+        ],
+      ),
+    );
   }
 
   Color _$color(int type) {

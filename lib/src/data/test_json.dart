@@ -207,4 +207,206 @@ class TestJson {
     "type": 3
   }
 ]""";
+  static String lotteryType = """[
+  {
+    "id": null,
+    "icon": "default_icon",
+    "name": "全部"
+  },
+  {
+    "id": 0,
+    "icon": "default_icon",
+    "name": "PK10"
+  },
+  {
+    "id": 1,
+    "icon": "default_icon",
+    "name": "时时彩"
+  },
+  {
+    "id": 2,
+    "icon": "default_icon",
+    "name": "快3"
+  },
+  {
+    "id": 3,
+    "icon": "default_icon",
+    "name": "快乐8"
+  },
+  {
+    "id": 4,
+    "icon": "default_icon",
+    "name": "11选5"
+  }
+]""";
+  static String numberRecord = """[
+  {
+    "id": 0,
+    "code": "20190621-031",
+    "number": "5,8,4,7,7"
+  },
+  {
+    "id": 1,
+    "code": "20190621-031",
+    "number": "5,8,4,7,7"
+  },
+  {
+    "id": 2,
+    "code": "20190621-031",
+    "number": "5,8,4,7,7"
+  },
+  {
+    "id": 3,
+    "code": "20190621-031",
+    "number": "5,8,4,7,7"
+  },
+  {
+    "id": 4,
+    "code": "20190621-031",
+    "number": "5,8,4,7,7"
+  },
+  {
+    "id": 5,
+    "code": "20190621-031",
+    "number": "5,8,4,7,7"
+  },
+  {
+    "id": 6,
+    "code": "20190621-031",
+    "number": "5,8,4,7,7"
+  },
+  {
+    "id": 7,
+    "code": "20190621-031",
+    "number": "5,8,4,7,7"
+  }
+]""";
+  static String lotterys = """[
+  {
+    "id": 0,
+    "name": "时时彩",
+    "icon": "default_icon",
+    "children": [
+      {
+        "id": 0,
+        "name": "重庆时时彩",
+        "icon": "default_icon"
+      },
+      {
+        "id": 1,
+        "name": "吉利时时彩",
+        "icon": "default_icon"
+      },
+      {
+        "id": 2,
+        "name": "陕西时时彩",
+        "icon": "default_icon"
+      },
+      {
+        "id": 3,
+        "name": "新疆时时彩",
+        "icon": "default_icon"
+      },
+      {
+        "id": 4,
+        "name": "西藏时时彩",
+        "icon": "default_icon"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "PK10",
+    "icon": "default_icon",
+    "children": [
+      {
+        "id": 0,
+        "name": "东京pk10",
+        "icon": "default_icon"
+      },
+      {
+        "id": 1,
+        "name": "南京pk10",
+        "icon": "default_icon"
+      },
+      {
+        "id": 2,
+        "name": "西京pk10",
+        "icon": "default_icon"
+      },
+      {
+        "id": 3,
+        "name": "北京pk10",
+        "icon": "default_icon"
+      },
+      {
+        "id": 4,
+        "name": "东京2pk10",
+        "icon": "default_icon"
+      },
+      {
+        "id": 5,
+        "name": "南京2pk10",
+        "icon": "default_icon"
+      },
+      {
+        "id": 6,
+        "name": "西京2pk10",
+        "icon": "default_icon"
+      },
+      {
+        "id": 7,
+        "name": "北京2pk10",
+        "icon": "default_icon"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "快3",
+    "icon": "default_icon",
+    "children": [
+      {
+        "id": 0,
+        "name": "江苏0快3",
+        "icon": "default_icon"
+      },
+      {
+        "id": 1,
+        "name": "江苏1快3",
+        "icon": "default_icon"
+      },
+      {
+        "id": 2,
+        "name": "江苏2快3",
+        "icon": "default_icon"
+      },
+      {
+        "id": 3,
+        "name": "江苏3快3",
+        "icon": "default_icon"
+      },
+      {
+        "id": 4,
+        "name": "江苏4快3",
+        "icon": "default_icon"
+      },
+      {
+        "id": 5,
+        "name": "江苏5快3",
+        "icon": "default_icon"
+      },
+      {
+        "id": 6,
+        "name": "江苏6快3",
+        "icon": "default_icon"
+      },
+      {
+        "id": 7,
+        "name": "江苏7快3",
+        "icon": "default_icon"
+      }
+    ]
+  }
+]""";
 }

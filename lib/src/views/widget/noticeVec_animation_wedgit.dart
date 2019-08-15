@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:opening_award/src/common/app_style.dart';
 import 'package:opening_award/src/data/model/banner.dart';
 
 //公告栏动画 垂直淡入淡出
@@ -51,7 +52,7 @@ class _NoticeVecAnimationState extends State<NoticeVecAnimation>
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                        color: Colors.black),
+                        color: S.textBlack),
                   ),
                 ),
               ],
