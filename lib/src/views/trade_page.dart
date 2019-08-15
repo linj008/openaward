@@ -54,6 +54,7 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
             style: TextStyle(fontSize: 18),
           ),
           backgroundColor: APPStyle.themeColor,
+          elevation: 0,
         ),
         body: Container(
             width: double.infinity,
@@ -371,35 +372,47 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
                 ),
               ),
             ),
-            Padding(padding: EdgeInsets.only(top: 5), child: Row(
-              children: <Widget>[
-                Text("可用", style: TextStyle(fontSize: 12, color: Colors.grey)),
-                Text("  0.0 USDT",
-                    style: TextStyle(fontSize: 12, color: Colors.grey))
-              ],
-            ),),
-            Padding(padding: EdgeInsets.only(top: 5), child: Row(
-              children: <Widget>[
-                Text("可买", style: TextStyle(fontSize: 12, color: Colors.grey)),
-                Text("  0.000000 BTC",
-                    style: TextStyle(fontSize: 12, color: Colors.grey))
-              ],
-            ),),
             Padding(
               padding: EdgeInsets.only(top: 5),
-              child: Row(children: <Widget>[
-                Expanded(child: FlatButton(
-                  onPressed: () {},
-                  color: APPStyle.heightLightGreen,
-                  child: Text(
-                    "买入BTC",
-                    style:
-                    new TextStyle(fontSize: 13, color: APPStyle.themeColor),
-                  ),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5))),
-                ),)
-              ],),
+              child: Row(
+                children: <Widget>[
+                  Text("可用",
+                      style: TextStyle(fontSize: 12, color: Colors.grey)),
+                  Text("  0.0 USDT",
+                      style: TextStyle(fontSize: 12, color: Colors.grey))
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 5),
+              child: Row(
+                children: <Widget>[
+                  Text("可买",
+                      style: TextStyle(fontSize: 12, color: Colors.grey)),
+                  Text("  0.000000 BTC",
+                      style: TextStyle(fontSize: 12, color: Colors.grey))
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 5),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: FlatButton(
+                      onPressed: () {},
+                      color: APPStyle.heightLightGreen,
+                      child: Text(
+                        "买入BTC",
+                        style: new TextStyle(
+                            fontSize: 13, color: APPStyle.themeColor),
+                      ),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5))),
+                    ),
+                  )
+                ],
+              ),
             )
           ],
         ),
@@ -458,7 +471,7 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
                             textAlign: TextAlign.center,
                             decoration: InputDecoration(
                                 contentPadding:
-                                const EdgeInsets.only(top: 8, bottom: 8),
+                                    const EdgeInsets.only(top: 8, bottom: 8),
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(0),
                                     borderSide: BorderSide.none),
@@ -510,7 +523,7 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
                     Expanded(
                         flex: 1,
                         child:
-                        Text("  数量", style: TextStyle(color: Colors.grey))),
+                            Text("  数量", style: TextStyle(color: Colors.grey))),
                     Expanded(
                         flex: 4,
                         child: Container(
@@ -525,7 +538,7 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
                                           top: 8, bottom: 8),
                                       border: OutlineInputBorder(
                                           borderRadius:
-                                          BorderRadius.circular(0),
+                                              BorderRadius.circular(0),
                                           borderSide: BorderSide.none),
                                       filled: true,
                                       fillColor: Color(0xFFFFFFFF)),
@@ -537,7 +550,7 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
                     Expanded(
                         flex: 1,
                         child:
-                        Text("BTC  ", style: TextStyle(color: Colors.grey)))
+                            Text("BTC  ", style: TextStyle(color: Colors.grey)))
                   ],
                 ),
               ),
@@ -605,35 +618,47 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
                 ),
               ),
             ),
-            Padding(padding: EdgeInsets.only(top: 5), child: Row(
-              children: <Widget>[
-                Text("可用", style: TextStyle(fontSize: 12, color: Colors.grey)),
-                Text("  0.0 USDT",
-                    style: TextStyle(fontSize: 12, color: Colors.grey))
-              ],
-            ),),
-            Padding(padding: EdgeInsets.only(top: 5), child: Row(
-              children: <Widget>[
-                Text("可买", style: TextStyle(fontSize: 12, color: Colors.grey)),
-                Text("  0.000000 BTC",
-                    style: TextStyle(fontSize: 12, color: Colors.grey))
-              ],
-            ),),
             Padding(
               padding: EdgeInsets.only(top: 5),
-              child: Row(children: <Widget>[
-                Expanded(child: FlatButton(
-                  onPressed: () {},
-                  color: APPStyle.heightLightRed,
-                  child: Text(
-                    "卖出BTC",
-                    style:
-                    new TextStyle(fontSize: 13, color: APPStyle.themeColor),
-                  ),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5))),
-                ),)
-              ],),
+              child: Row(
+                children: <Widget>[
+                  Text("可用",
+                      style: TextStyle(fontSize: 12, color: Colors.grey)),
+                  Text("  0.0 USDT",
+                      style: TextStyle(fontSize: 12, color: Colors.grey))
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 5),
+              child: Row(
+                children: <Widget>[
+                  Text("可买",
+                      style: TextStyle(fontSize: 12, color: Colors.grey)),
+                  Text("  0.000000 BTC",
+                      style: TextStyle(fontSize: 12, color: Colors.grey))
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 5),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: FlatButton(
+                      onPressed: () {},
+                      color: APPStyle.heightLightRed,
+                      child: Text(
+                        "卖出BTC",
+                        style: new TextStyle(
+                            fontSize: 13, color: APPStyle.themeColor),
+                      ),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5))),
+                    ),
+                  )
+                ],
+              ),
             )
           ],
         ),

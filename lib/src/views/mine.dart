@@ -186,7 +186,17 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
 
   Widget _buildHeader2() {
     return Container(
-      color: S.themeColor,
+      decoration: BoxDecoration(
+        color: S.themeColor, //和Container下面的color会冲突 具体原因不详
+        boxShadow: <BoxShadow>[
+          //设置阴影
+          BoxShadow(
+            color: S.themeColor, //阴影颜色
+            blurRadius: 5, //阴影大小
+          ),
+        ],
+      ),
+//      color: S.themeColor,
       padding: EdgeInsets.only(left: 16, top: 16, right: 16, bottom: 32),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
