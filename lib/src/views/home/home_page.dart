@@ -98,7 +98,7 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
     return ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: FadeInImage.assetNetwork(
-            placeholder: P.jpeg('logo'),
+            placeholder: P.jpeg('default_person'),
             image: banner.picUrl,
             fit: BoxFit.fill));
   }
@@ -184,7 +184,7 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Image.asset(P.png('ic_gift'),
+                              Image.asset(P.png('default_icon'),
                                   height: 18, width: 18),
                               Text('    邀请好友',
                                   style: TextStyle(
@@ -200,7 +200,7 @@ class _HomePageState extends BaseWidgetState<ViewBasicResponse, HomePage>
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Image.asset(P.png('ic_help'),
+                              Image.asset(P.png('default_icon'),
                                   height: 18, width: 18),
                               Text('    帮助中心',
                                   style: TextStyle(

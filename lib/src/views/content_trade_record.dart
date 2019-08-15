@@ -147,7 +147,7 @@ class _TradeRecordPageState
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset(P.png('img_order'), width: 278, height: 202),
+            Image.asset(P.png('default_order'), width: 278, height: 202),
             Text('您当前还没有进行任何挂单',
                 style: new TextStyle(fontSize: 13, color: Colors.grey)),
             Padding(

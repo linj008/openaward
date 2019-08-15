@@ -30,7 +30,7 @@ class TradeItemState extends State<TradeItem> {
                   Offstage(
                       offstage: _$offstage(_tag),
                       child:
-                          Image.asset(P.jpeg('logo'), height: 14, width: 14)),
+                          Image.asset(P.jpeg('default_person'), height: 14, width: 14)),
                   Offstage(
                       offstage: _$offstage(_tag),
                       child: Text(' ${_item.title} ',

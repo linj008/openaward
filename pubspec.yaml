@@ -44,63 +44,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/more.png
-    - assets/images/sbty.png
-    - assets/images/sjqp.png
-    - assets/images/sjsx.png
-    - assets/images/3fk3.png
-    - assets/images/5fk3.png
-    - assets/images/syxw.png
-    - assets/images/bj28.png
-    - assets/images/bjpk10.png
-    - assets/images/cqssc.png
-    - assets/images/fc3d.png
-    - assets/images/ffk3.png
-    - assets/images/fhjlssc.png
-    - assets/images/gd11x5.png
-    - assets/images/hbk3.png
-    - assets/images/jx11x5.png
-    - assets/images/k3.png
-    - assets/images/llssc.png
-    - assets/images/mlaft.png
-    - assets/images/ssc.png
-    - assets/images/tx5fc.png
-    - assets/images/txffc.png
-    - assets/images/xglhc.png
-    - assets/images/xjssc.png
-    - assets/images/xy11x5.png
-    - assets/images/xyk3.png
-    - assets/images/xyPK10.png
-    - assets/images/xyssc.png
-    - assets/images/zyxglhc.png
-    - assets/images/notice.png
-    - assets/images/icon_recharge_record.png
-    - assets/images/icon_withdraw_record.png
-    - assets/images/icon_trading_record.png
-    - assets/images/icon_bet_record.png
-    - assets/images/icon_user.png
-    - assets/images/icon_safety.png
-    - assets/images/icon_agency.png
-    - assets/images/icon_display.png
-    - assets/images/icon_hide.png
-    - assets/images/icon_logo.png
-    - assets/images/icon_right.png
-    - assets/images/icon_customer_service.png
-    - assets/images/logo.jpeg
-    - assets/images/ic_set.png
-    - assets/images/ic_order.png
-    - assets/images/ic_money.png
-    - assets/images/ic_identify.png
-    - assets/images/ic_safety.png
-    - assets/images/img_order.png
-    - assets/images/pay_alipay.png
-    - assets/images/pay_wechat.png
-    - assets/images/pay_yinlian.png
-    - assets/images/ic_scan.png
-    - assets/images/ic_get_money.png
-    - assets/images/ic_notice.png
-    - assets/images/ic_gift.png
-    - assets/images/ic_help.png
+    - assets/images/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

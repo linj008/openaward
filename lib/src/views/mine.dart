@@ -111,7 +111,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
                     ),
                     child: ClipOval(
                       child: Image.asset(
-                        P.jpeg('logo'),
+                        P.jpeg('default_person'),
                         height: 60,
                         width: 60,
                       ),
@@ -196,7 +196,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Image.asset(
-                  P.jpeg('logo'),
+                  P.jpeg('default_person'),
                   height: 120,
                   width: 100,
                   fit: BoxFit.cover,
@@ -206,7 +206,7 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
                 right: 4,
                 bottom: 4,
                 child: Image.asset(
-                  P.png('ic_order'),
+                  P.png('default_icon'),
                   height: 24,
                   width: 24,
                 ),
