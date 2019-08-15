@@ -118,8 +118,10 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
                       GestureDetector(
                         onTap: () {},
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Text("BTC/USDT", style: TextStyle(fontSize: 18)),
+                            Text("10145", style: TextStyle(fontSize: 14, color: APPStyle.heightLightGreen)),
+                            Text(" = 69798.97", style: TextStyle(fontSize: 12, color: Colors.grey)),
                             Icon(Icons.keyboard_arrow_down),
                           ],
                         ),
@@ -199,7 +201,7 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
                   ),
                 ),
                 Expanded(
-                  flex: 3,
+                  flex: 2,
                   child: Container(
                     height: 37,
                     decoration: new BoxDecoration(
@@ -213,7 +215,7 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
                             textAlign: TextAlign.center,
                             decoration: InputDecoration(
                                 contentPadding:
-                                    const EdgeInsets.only(top: 8, bottom: 8),
+                                const EdgeInsets.only(top: 8, bottom: 8),
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(0),
                                     borderSide: BorderSide.none),
@@ -264,8 +266,9 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
                   children: <Widget>[
                     Expanded(
                         flex: 1,
-                        child:
-                            Text("  数量", style: TextStyle(color: Colors.grey))),
+                        child: Text("  数量",
+                            style:
+                            TextStyle(color: Colors.grey, fontSize: 10))),
                     Expanded(
                         flex: 4,
                         child: Container(
@@ -280,7 +283,7 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
                                           top: 8, bottom: 8),
                                       border: OutlineInputBorder(
                                           borderRadius:
-                                              BorderRadius.circular(0),
+                                          BorderRadius.circular(0),
                                           borderSide: BorderSide.none),
                                       filled: true,
                                       fillColor: Color(0xFFFFFFFF)),
@@ -291,8 +294,8 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
                         )),
                     Expanded(
                         flex: 1,
-                        child:
-                            Text("BTC  ", style: TextStyle(color: Colors.grey)))
+                        child: Text("BTC  ",
+                            style: TextStyle(color: Colors.grey, fontSize: 10)))
                   ],
                 ),
               ),
@@ -372,35 +375,47 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
                 ),
               ),
             ),
-            Padding(padding: EdgeInsets.only(top: 5), child: Row(
-              children: <Widget>[
-                Text("可用", style: TextStyle(fontSize: 12, color: Colors.grey)),
-                Text("  0.0 USDT",
-                    style: TextStyle(fontSize: 12, color: Colors.grey))
-              ],
-            ),),
-            Padding(padding: EdgeInsets.only(top: 5), child: Row(
-              children: <Widget>[
-                Text("可买", style: TextStyle(fontSize: 12, color: Colors.grey)),
-                Text("  0.000000 BTC",
-                    style: TextStyle(fontSize: 12, color: Colors.grey))
-              ],
-            ),),
             Padding(
               padding: EdgeInsets.only(top: 5),
-              child: Row(children: <Widget>[
-                Expanded(child: FlatButton(
-                  onPressed: () {},
-                  color: APPStyle.heightLightGreen,
-                  child: Text(
-                    "买入BTC",
-                    style:
-                    new TextStyle(fontSize: 13, color: APPStyle.themeColor),
-                  ),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5))),
-                ),)
-              ],),
+              child: Row(
+                children: <Widget>[
+                  Text("可用",
+                      style: TextStyle(fontSize: 12, color: Colors.grey)),
+                  Text("  0.0 USDT",
+                      style: TextStyle(fontSize: 12, color: Colors.grey))
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 5),
+              child: Row(
+                children: <Widget>[
+                  Text("可买",
+                      style: TextStyle(fontSize: 12, color: Colors.grey)),
+                  Text("  0.000000 BTC",
+                      style: TextStyle(fontSize: 12, color: Colors.grey))
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 5),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: FlatButton(
+                      onPressed: () {},
+                      color: APPStyle.heightLightGreen,
+                      child: Text(
+                        "买入BTC",
+                        style: new TextStyle(
+                            fontSize: 13, color: APPStyle.themeColor),
+                      ),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5))),
+                    ),
+                  )
+                ],
+              ),
             )
           ],
         ),
@@ -445,7 +460,7 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
                   ),
                 ),
                 Expanded(
-                  flex: 3,
+                  flex: 2,
                   child: Container(
                     height: 37,
                     decoration: new BoxDecoration(
@@ -510,8 +525,9 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
                   children: <Widget>[
                     Expanded(
                         flex: 1,
-                        child:
-                        Text("  数量", style: TextStyle(color: Colors.grey))),
+                        child: Text("  数量",
+                            style:
+                            TextStyle(color: Colors.grey, fontSize: 10))),
                     Expanded(
                         flex: 4,
                         child: Container(
@@ -537,8 +553,8 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
                         )),
                     Expanded(
                         flex: 1,
-                        child:
-                        Text("BTC  ", style: TextStyle(color: Colors.grey)))
+                        child: Text("BTC  ",
+                            style: TextStyle(color: Colors.grey, fontSize: 10)))
                   ],
                 ),
               ),
@@ -606,35 +622,47 @@ class _TradePageState extends BaseWidgetState<ViewBasicResponse, TradePage>
                 ),
               ),
             ),
-            Padding(padding: EdgeInsets.only(top: 5), child: Row(
-              children: <Widget>[
-                Text("可用", style: TextStyle(fontSize: 12, color: Colors.grey)),
-                Text("  0.0 USDT",
-                    style: TextStyle(fontSize: 12, color: Colors.grey))
-              ],
-            ),),
-            Padding(padding: EdgeInsets.only(top: 5), child: Row(
-              children: <Widget>[
-                Text("可买", style: TextStyle(fontSize: 12, color: Colors.grey)),
-                Text("  0.000000 BTC",
-                    style: TextStyle(fontSize: 12, color: Colors.grey))
-              ],
-            ),),
             Padding(
               padding: EdgeInsets.only(top: 5),
-              child: Row(children: <Widget>[
-                Expanded(child: FlatButton(
-                  onPressed: () {},
-                  color: APPStyle.heightLightRed,
-                  child: Text(
-                    "卖出BTC",
-                    style:
-                    new TextStyle(fontSize: 13, color: APPStyle.themeColor),
-                  ),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5))),
-                ),)
-              ],),
+              child: Row(
+                children: <Widget>[
+                  Text("可用",
+                      style: TextStyle(fontSize: 12, color: Colors.grey)),
+                  Text("  0.0 USDT",
+                      style: TextStyle(fontSize: 12, color: Colors.grey))
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 5),
+              child: Row(
+                children: <Widget>[
+                  Text("可买",
+                      style: TextStyle(fontSize: 12, color: Colors.grey)),
+                  Text("  0.000000 BTC",
+                      style: TextStyle(fontSize: 12, color: Colors.grey))
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 5),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: FlatButton(
+                      onPressed: () {},
+                      color: APPStyle.heightLightRed,
+                      child: Text(
+                        "卖出BTC",
+                        style: new TextStyle(
+                            fontSize: 13, color: APPStyle.themeColor),
+                      ),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5))),
+                    ),
+                  )
+                ],
+              ),
             )
           ],
         ),
