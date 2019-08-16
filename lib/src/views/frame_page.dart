@@ -6,7 +6,6 @@ import 'package:opening_award/src/views/trade_page.dart';
 
 import 'content_trade_record.dart';
 import 'home/home_page.dart';
-import 'lottery_control.dart';
 import 'mine.dart';
 import 'situation_page.dart';
 
@@ -34,7 +33,6 @@ class _FramePageState extends BaseWidgetState<ViewBasicResponse, FramePage>
       PageModel('币币', Icon(Icons.insert_comment), TradePage()),
       PageModel('法币', Icon(Icons.assignment), TradeRecordPage()),
       PageModel('我的', Icon(Icons.person), MinePage()),
-      PageModel('控制', Icon(Icons.content_cut), LotteryControlPage()),
     ];
     _controller = TabController(
       vsync: this,

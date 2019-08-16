@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:opening_award/src/common/app_style.dart';
 import 'package:opening_award/src/common/base_data.dart';
+import 'package:opening_award/src/common/navigator_utils.dart';
 import 'package:opening_award/src/common/weight/base_stateful_widget.dart';
 import 'package:opening_award/src/data/model/menu.dart';
 import 'package:opening_award/src/data/test_data.dart';
@@ -39,7 +40,9 @@ class LotteryControlState
               Icons.arrow_back,
               color: Colors.white,
             ),
-            onPressed: () {},
+            onPressed: () {
+              NavigatorUtils.goBack(context);
+            },
           ),
         ),
         title: Text(

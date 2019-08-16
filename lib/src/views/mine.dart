@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:opening_award/src/common/app_style.dart';
 import 'package:opening_award/src/common/base_data.dart';
+import 'package:opening_award/src/common/navigator_utils.dart';
 import 'package:opening_award/src/common/weight/base_stateful_widget.dart';
 import 'package:opening_award/src/data/local_data.dart';
 import 'package:opening_award/src/data/model/menu.dart';
@@ -281,7 +282,9 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
 
   Widget _buildListItem(Menu menu) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        _$clickItem(menu.id);
+      },
       child: Column(
         children: <Widget>[
           Container(
@@ -324,5 +327,24 @@ class MineState extends BaseWidgetState<ViewBasicResponse, MinePage> {
         ],
       ),
     );
+  }
+
+  void _$clickItem(int id) {
+    switch (id) {
+      case 0:
+        break;
+      case 1:
+        break;
+      case 2:
+        break;
+      // 彩种控制
+      case 3:
+        NavigatorUtils.goLotteryControlPage(context);
+        break;
+      case 4:
+        break;
+      case 5:
+        break;
+    }
   }
 }
